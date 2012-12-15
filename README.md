@@ -8,8 +8,7 @@ This field is an extension of the original image-field, and should behave in the
 
 The field uses the <a href="http://odyniec.net/projects/imgareaselect/">imgareaselect</a> jquery cropping plugin for the front-end crop functionality.
 
-Installation
-==============
+##Installation
 1. Create a folder called "fields" in your theme folder (if not already created) and copy the image-crop.php and lib-folder into it.*
 
 2. Add the following code to your functions.php:
@@ -21,8 +20,7 @@ Installation
 
 *If you choose to use another location for the field, be sure to set the "pathToFields"-variable of image_crop.php in line 36 correspondingly
 
-Usage
-==============
+##Usage
 When setting up a field, chose the crop type you would like to use:
 
 Fixed: the aspect ratio is locked to the specified dimensions. The user is able to select a bigger area, which will be scaled down to the specified dimensions after the crop.
