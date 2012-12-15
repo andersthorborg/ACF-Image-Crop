@@ -6,6 +6,8 @@ Basic proof of concept of an ACF image field with user-crop. It still needs a lo
 When setting up the field, you are able to pre-define dimensions/aspect ratio, that the user can crop the image to right in the displayed image.
 This field is an extension of the original image-field, and should behave in the same way as the original image field except for the cropping option.
 
+The field uses the <a href="http://odyniec.net/projects/imgareaselect/">imgareaselect</a> jquery cropping plugin for the front-end crop functionality.
+
 Installation
 ==============
 1. Create a folder called "fields" in your theme folder (if not already created) and copy the image-crop.php and lib-folder into it.*
