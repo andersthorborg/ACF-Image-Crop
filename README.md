@@ -12,9 +12,9 @@ Installation
 
 2. Add the following code to your functions.php:
 
-if( function_exists( 'register_field' ) ){
-    register_field('ImageCrop', dirname(__File__) . '/fields/image_crop.php');
-}
+    if( function_exists( 'register_field' ) ){
+        register_field('ImageCrop', dirname(__File__) . '/fields/image_crop.php');
+    }
 
 *If you choose to use another location for the field, be sure to set the "pathToFields"-variable of image_crop.php in line 36 correspondingly
 
