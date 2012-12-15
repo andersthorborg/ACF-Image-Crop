@@ -30,8 +30,11 @@ class ImageCrop extends acf_Field
 	function __construct($parent)
 	{
 		// do not delete!
-    	parent::__construct($parent);
-    	
+    	parent::__construct($parent);    	                    
+        
+            /* If needed, change this to match the correct path your ACF-fields folder */
+            $this->pathToFields = get_bloginfo('stylesheet_directory') . '/fields';
+        
             // set name / title
             $this->name = 'image_crop'; // variable name (no spaces / special characters / etc)
             $this->title = __("Image with user crop",'acf'); // field label (Displayed in edit screens)
@@ -720,12 +723,9 @@ class ImageCrop extends acf_Field
                         break;
                 }
 		?>
-<script>
-    // TESTING
+<script>    
     jQuery(function($){                       
-       $('.field-<?= $this->name ?> .<?= $field['key'] ?>_cropButton').click(function(){            
-           // create json data    '    
-           console.log(this);
+       $('.field-<?= $this->name ?> .<?= $field['key'] ?>_cropButton').click(function(){                                 
             var $image = $(this).parents('.acf-image-uploader').find('.has-image > img');
             var $field = $(this).parents('.acf-image-uploader');            
             if($(this).hasClass('active')){
@@ -743,10 +743,8 @@ class ImageCrop extends acf_Field
                         action: 'acf_crop_get_image_size',
                         image_id: $(this).parents('.acf-image-uploader').find('input.value').val()                    
                 };
-
-                // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-                $.getJSON(ajaxurl, data, function( json ) {
-                    console.log(json);
+                
+                $.getJSON(ajaxurl, data, function( json ) {                    
                     $($image).imgAreaSelect({
                         <?php 
                         foreach(array_keys($cropOptions) as $key){
@@ -833,12 +831,12 @@ class ImageCrop extends acf_Field
 	
 	function admin_print_scripts()
 	{
-            wp_enqueue_script('img_area_select', get_bloginfo('stylesheet_directory') . '/fields/lib/imgareaselect/jquery.imgareaselect.min.js', 'jquery');
+            wp_enqueue_script('img_area_select', $this->pathToFields . '/lib/imgareaselect/jquery.imgareaselect.min.js', 'jquery');
 	}
 	
 	function admin_print_styles()
 	{
-            wp_enqueue_style('img_area_select', get_bloginfo('stylesheet_directory') . '/fields/lib/imgareaselect/imgareaselect-default.css', 'jquery');	
+            wp_enqueue_style('img_area_select', $this->pathToFields . '/lib/imgareaselect/imgareaselect-default.css', 'jquery');	
 	}
 
 	
