@@ -1,33 +1,92 @@
-ACF-Image-Crop
-==============
+# ACF { Field Type Template
 
-Basic proof of concept of an ACF image field with user-crop. It still needs a lot of testing.
+Welcome to the repository for Advanced Custom Fields Field Type Template.
+This repository holds a starting kit to create a field type Add-on with these abilities:
+* works in ACF version 4
+* works in ACF version 3
+* works as a WP plugin
+* works as a theme include
 
-When setting up the field, you are able to pre-define dimensions/aspect ratio, that the user can crop the image to right in the displayed image.
-This field is an extension of the original image-field, and should behave in the same way as the original image field except for the cropping option.
+For more information, please read the documentation here:
+http://www.advancedcustomfields.com/resources/tutorials/creating-a-new-field-type/
 
-The field uses the <a href="http://odyniec.net/projects/imgareaselect/">imgareaselect</a> jquery cropping plugin for the front-end crop functionality.
+### Structure
 
-##Installation
-1. Create a folder called "fields" in your theme folder (if not already created) and copy the image-crop.php and lib-folder into it.*
+* /css :  folder for .css files.
+* /images : folder for image files
+* /js : folder for .js files
+* /lang : folder for .po and .mo files
+* acf-image_crop.php : Main add-on file. This file acts as the WP plugin and includes the neccessary field file
+* image_crop-v4.php : Field class compatible with ACF version 4
+* image_crop-v3.php : Field class compatible with ACF version 3
+* readme.txt : WordPress readme file to be used by the wordpress repository if this add-on is also uploaded to WP
 
-2. Add the following code to your functions.php:
+### step 1.
+
+This template uses moustache placeholders such as this image_crop throughout the file names and code. Use the list of placeholders below to do a 'find and replace'. The list below shows an example for a field called 'Google Maps'
+
+**General**
+
+* image_crop : google_maps (used for class & file names so please use '_' instead of '-')
+* Image - Custom crop : Google Maps
+
+**Readme**
+
+* andersthorborg : elliotcondon
+* Anders Thorborg : Elliot Condon
+* http://thorb.org : http://www.elliotcondon.com
+* An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions : ...
+* An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions : ...
+* https://github.com/andersthorborg/ACF-Image-Crop : https://github.com/elliotcondon/acf-field-type-template
+
+### step 2.
+
+Edit the image_crop-v4.php and image_crop-v3.php files (now renamed with your field name) and include your custom code in the apropriate functions.
+Please note that v3 and v4 field classes have slightly different functions. For more information, please read:
+* http://www.advancedcustomfields.com/resources/tutorials/creating-a-new-field-type/
+* http://www.advancedcustomfields.com/resources/tutorials/creating-a-new-field-type-v3/
+
+### step 3.
+
+Edit this README.md file with the apropriate information and delete all content above and including the following line!
+
+-----------------------
+
+# ACF { Image - Custom crop Field
+
+Adds a 'Image - Custom crop' field type for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) WordPress plugin.
+
+-----------------------
+
+### Overview
+
+An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions
+
+### Compatibility
+
+This add-on will work with:
+
+* version 4 and up
+* version 3 and bellow
+
+### Installation
+
+This add-on can be treated as both a WP plugin and a theme include.
+
+**Install as Plugin**
+
+1. Copy the 'acf-image_crop' folder into your plugins folder
+2. Activate the plugin via the Plugins admin page
+
+**Include within theme**
+
+1.	Copy the 'acf-image_crop' folder into your theme folder (can use sub folders). You can place the folder anywhere inside the 'wp-content' directory
+2.	Edit your functions.php file and add the code below (Make sure the path is correct to include the acf-image_crop.php file)
+
 ```php
-    if( function_exists( 'register_field' ) ){
-        register_field('ImageCrop', dirname(__File__) . '/fields/image_crop.php');
-    }
+include_once('acf-image_crop/acf-image_crop.php');
 ```
 
-*If you choose to use another location for the field, be sure to set the "pathToFields"-variable of image_crop.php in line 36 correspondingly
+### More Information
 
-##Usage
-When setting up a field, chose the crop type you would like to use:
-
-Fixed: the aspect ratio is locked to the specified dimensions. The user is able to select a bigger area, which will be scaled down to the specified dimensions after the crop.
-Variable height/width: One dimension is fixed to the specified size, while the other can be selected between the min and max specified. Leave blank for no min/max.
-Free: The user can freely crop the image as desired.
-
-In the edit screens when an image is selected, a crop button will appear after the image. When pressed the image can be cropped based on the selected settings.
-When the post is saved, the image is cropped based on the users cropping.
-If the user doesn't crop the image, no changes will be made.
-
+Please read the readme.txt file for more information
