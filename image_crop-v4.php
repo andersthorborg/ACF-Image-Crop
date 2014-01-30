@@ -21,7 +21,7 @@ class acf_field_image_crop extends acf_field_image
 		// vars
 		$this->name = 'image_crop';
 		$this->label = __('Image - Custom crop');
-		$this->category = __("Basic",'acf'); // Basic, Content, Choice, etc
+		$this->category = __("Content",'acf'); // Basic, Content, Choice, etc
 		$this->defaults = array(
 			'force_crop' => 'no',
 			'crop_type' => 'hard',
