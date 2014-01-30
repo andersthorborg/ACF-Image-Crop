@@ -253,7 +253,7 @@ class acf_field_image_crop extends acf_field_image
 			'url'		=>	'',
 		);		
 		$originalImage = null;
-		if( $data && is_numeric($data->original_image) )
+		if( $data && is_object($data) && is_numeric($data->original_image) )
 		{
 			$originalImage = wp_get_attachment_image_src($data->original_image, 'full');
 			$url = wp_get_attachment_image_src($data->original_image, $field['preview_size']);
