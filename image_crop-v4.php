@@ -347,6 +347,9 @@ class acf_field_image_crop extends acf_field_image
 			return false;
 		}
 		$data = json_decode($value);
+		if(!is_object($data)){
+			return $value;
+		}
 		
 		// format
 		if( $field['save_format'] == 'url' )
@@ -401,9 +404,8 @@ class acf_field_image_crop extends acf_field_image
 			}
 			// if( $image_sizes )
 			
-		}
-		
-		return $value;
+		}		
+		return $data->cropped_image;
 		
 	}
 
