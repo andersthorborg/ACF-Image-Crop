@@ -26,7 +26,8 @@ class acf_field_image_crop extends acf_field_image
 			'force_crop' => 'no',
 			'crop_type' => 'hard',
 			'preview_size' => 'medium',
-			'save_format' => 'object'
+			'save_format' => 'object',
+			'target_size' => 'thumbnail'
 			// add default here to merge into your field.
 			// This makes life easy when creating the field options as you don't need to use any if( isset('') ) logic. eg:
 			//'preview_size' => 'thumbnail'
