@@ -22,6 +22,8 @@
 			$field.find('.acf-image-value').on('change', function(){
 				var originalImage = $(this).val();
 				if($(this).val()){
+					$field.removeClass('invalid');
+					$field.find('.init-crop-button').removeAttr('disabled');
 					$field.find('.acf-image-value').data('original-image', originalImage);
 					$field.find('.acf-image-value').data('cropped-image', originalImage);
 					$field.find('.acf-image-value').data('cropped', false);				
@@ -33,13 +35,18 @@
 						$field.find('img.crop-image').data('width', data['width']);						
 						$field.find('img.crop-image').data('height', data['height']);						
 						var warnings = [];
+						var valid = true;
 						if($options.data('width') && data['width'] < $options.data('width')){
 							warnings.push('Width should be at least: ' + $options.data('width') + 'px (Selected image width: ' + data['width'] + 'px)');
+							valid = false;
 						}
 						if($options.data('height') && data['height'] < $options.data('height')){
 							warnings.push('Height should be at least: ' + $options.data('height') + 'px (Selected image height: ' + data['height'] + 'px)');
+							valid = false;
 						}
-						if(warnings.length > 0){
+						if(!valid){
+							$field.addClass('invalid');
+							$field.find('.init-crop-button').attr('disabled', 'disabled');
 							alert('Warning: The selected image is smaller than the required size:\n' + warnings.join('\n'));
 						}
 						else{
@@ -104,10 +111,12 @@
 				options.y2 = options.imageHeight;
 			}			
 		}
-		toggleCropView($field);	
-		$field.find('.crop-stage img.crop-image').imgAreaSelect(options);
-		updateCropData($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y1, x1: options.x1, x2: options.x2});
-		updateThumbnail($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y2, x1: options.x1, x2: options.x2});
+		if(!$field.hasClass('invalid')){
+			toggleCropView($field);	
+			$field.find('.crop-stage img.crop-image').imgAreaSelect(options);
+			updateCropData($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y1, x1: options.x1, x2: options.x2});
+			updateThumbnail($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y2, x1: options.x1, x2: options.x2});
+		}
 	}
 
 	function updateCropData($field, img, selection){
