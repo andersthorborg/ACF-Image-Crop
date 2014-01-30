@@ -56,8 +56,12 @@
 						}
 						
 					}, 'json');
+					updateFieldValue($field);
 				}
-				updateFieldValue($field);
+				else{
+					//Do nothing
+				}
+				
 			})			
 			$field.find('.init-crop-button').click(function(e){				
 				e.preventDefault();
