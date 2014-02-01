@@ -1,0 +1,63 @@
+.field_type-image_crop .crop-stage .crop-image{
+	max-width:100%;
+}
+.field_type-image_crop .crop-stage .crop-action{
+	float:left;
+	width:65%;
+}
+.field_type-image_crop .crop-stage .crop-preview{
+	float:right;
+	width:25%;
+}
+.field_type-image_crop .crop-stage .crop-preview .preview{
+	width:100%;
+}
+
+.field_type-image_crop .crop-stage .crop-preview .crop-controls{
+	padding-top:20px;
+	clear: both;
+}
+
+.field_type-image_crop .crop-section .crop-stage, .field_type-image_crop.cropping .image-section, .field_type-image_crop.cropping .init-crop-button{
+	display:none;
+}
+.field_type-image_crop.cropping .crop-stage {
+	display:block;
+	position:fixed;
+	top:60px;
+	width:800px;
+	left:50%;
+	margin-left:-440px;
+	height:auto;
+	background-color: #fff;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+	padding:40px;
+	z-index: 100;
+
+}
+.field_type-image_crop.cropping .has-image, .field_type-image_crop.cropping .crop-section{
+	width:100%;
+}
+
+.field_type-image_crop .crop-stage.loading .crop-controls{
+	-webkit-transition: opacity 300ms;
+	-moz-transition: opacity 300ms;
+	-ms-transition: opacity 300ms;
+	-o-transition: opacity 300ms;
+	transition: opacity 300ms;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	filter: alpha(opacity=20);
+	opacity:0.2;
+}
+
+.button.init-crop-button{
+	margin-top: 20px;
+}
+#acf-image-crop-overlay{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	background-color: rgba(0,0,0,0.8);
+}
