@@ -43,11 +43,11 @@ add_action('acf/register_fields', 'my_register_fields');
 
 function my_register_fields()
 {
-	include_once('acf-image_crop/acf-image_crop.php');
+	include_once('acf-image-crop/acf-image-crop.php');
 }
 `
 
 == Changelog ==
 
-= 0.0.1 =
+= 0.0.5 =
 * Initial Release.
