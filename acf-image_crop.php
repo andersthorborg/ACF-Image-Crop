@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields: Image - Custom crop
+Plugin Name: Advanced Custom Fields: Image Crop Add-on
 Plugin URI: https://github.com/andersthorborg/ACF-Image-Crop
 Description: An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions
 Version: 1.0.0

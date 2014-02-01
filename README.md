@@ -1,8 +1,8 @@
 -----------------------
 
-# ACF { Image - Custom crop Field
+# ACF { Image Crop Add-on
 
-Adds a 'Image - Custom crop' field type for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) WordPress plugin.
+Adds an 'Image with user-crop' field type for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) WordPress plugin.
 
 
 

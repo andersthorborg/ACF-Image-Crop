@@ -1,4 +1,4 @@
-=== Advanced Custom Fields: Image - Custom crop Field ===
+=== Advanced Custom Fields: Image Crop Add-on ===
 Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.4
