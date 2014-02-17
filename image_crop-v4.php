@@ -521,8 +521,8 @@ class acf_field_image_crop extends acf_field_image
 	}
 
 	function generate_cropped_image($id, $x1, $x2, $y1, $y2, $targetW, $targetH){//$id, $x1, $x2, $y$, $y2, $targetW, $targetH){
-		require_once WP_CONTENT_DIR . "/../wp-admin/includes/file.php";
-        require_once WP_CONTENT_DIR . "/../wp-admin/includes/image.php";                
+		require_once ABSPATH . "/wp-admin/includes/file.php";
+        require_once ABSPATH . "/wp-admin/includes/image.php";                
                         
             $filename = wp_crop_image($id, $x1, $y1, $x2 - $x1, $y2 - $y1, $targetW, $targetH);   
             error_log($filename);
