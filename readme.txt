@@ -3,7 +3,7 @@ Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 0.6
+Stable tag: 0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,9 @@ function my_register_fields()
 `
 
 == Changelog ==
+
+= 0.0.7 =
+* Fixed return types other than image id causing fatal error
 
 = 0.0.6 =
 * Fix for WP installs with non-standard folder structures

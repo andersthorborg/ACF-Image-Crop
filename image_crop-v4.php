@@ -350,15 +350,17 @@ class acf_field_image_crop extends acf_field_image
 		if(!is_object($data)){
 			return $value;
 		}
+
+		$value = $data->cropped_image;
 		
 		// format
 		if( $field['save_format'] == 'url' )
 		{
-			$value = wp_get_attachment_url( $data['cropped_image'] );
+			$value = wp_get_attachment_url( $data->cropped_image );
 		}
 		elseif( $field['save_format'] == 'object' )
 		{
-			$attachment = get_post( $data['cropped_image'] );
+			$attachment = get_post( $data->cropped_image );
 			
 			
 			// validate
@@ -405,7 +407,7 @@ class acf_field_image_crop extends acf_field_image
 			// if( $image_sizes )
 			
 		}		
-		return $data->cropped_image;
+		return $value;
 		
 	}
 
@@ -524,23 +526,22 @@ class acf_field_image_crop extends acf_field_image
 		require_once ABSPATH . "/wp-admin/includes/file.php";
         require_once ABSPATH . "/wp-admin/includes/image.php";                
                         
-            $filename = wp_crop_image($id, $x1, $y1, $x2 - $x1, $y2 - $y1, $targetW, $targetH);   
-            error_log($filename);
-            // GENERATE NEW ATTACHMENT FROM NEW FILE
-            $wp_filetype = wp_check_filetype(basename($filename), null );              
-            $attachment = array(
-                 'guid' => $filename, 
-                 'post_mime_type' => $wp_filetype['type'],
-                 'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
-                 'post_content' => '',
-                 'post_status' => 'inherit'
-              );                            
-            $attach_id = wp_insert_attachment( $attachment, $filename);                  
-            $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
-            wp_update_attachment_metadata( $attach_id, $attach_data );
+        $filename = wp_crop_image($id, $x1, $y1, $x2 - $x1, $y2 - $y1, $targetW, $targetH);   
+        // GENERATE NEW ATTACHMENT FROM NEW FILE
+        $wp_filetype = wp_check_filetype(basename($filename), null );              
+        $attachment = array(
+             'guid' => $filename, 
+             'post_mime_type' => $wp_filetype['type'],
+             'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
+             'post_content' => '',
+             'post_status' => 'inherit'
+          );                            
+        $attach_id = wp_insert_attachment( $attachment, $filename);                  
+        $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+        wp_update_attachment_metadata( $attach_id, $attach_data );
 
-            // Return ID of cropped image
-            return $attach_id;        
+        // Return ID of cropped image
+        return $attach_id;        
 	}
 
 }
