@@ -49,12 +49,12 @@ function my_register_fields()
 
 == Changelog ==
 
-= 0.0.7 =
+= 0.7 =
 * Fixed return types other than image id causing fatal error
 
-= 0.0.6 =
+= 0.6 =
 * Fix for WP installs with non-standard folder structures
 
-= 0.0.5 =
+= 0.5 =
 * Initial Release.
 
