@@ -47,6 +47,16 @@ function my_register_fields()
 }
 `
 
+== Screenshots ==
+
+1. Use a registered image size as the field target size
+2. Or use custom dimensions on the fly
+3. On the edit screen, select/upload an image as usual
+4. A crop-button will appear beneath the image (If desired, use the "Force user crop"-option to initialize the crop as soon as the user selects the image)
+5. The image is cropped to the desired format, using the restrictions set under field options
+6. The new format is shown using the specified preview size. The original image is kept with the field, so the image can be re-cropped at any time.
+
+
 == Changelog ==
 
 = 0.7 =
