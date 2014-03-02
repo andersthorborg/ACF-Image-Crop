@@ -118,7 +118,7 @@
 		if(!$field.hasClass('invalid')){
 			toggleCropView($field);	
 			$field.find('.crop-stage img.crop-image').imgAreaSelect(options);
-			updateCropData($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y1, x1: options.x1, x2: options.x2});
+			updateCropData($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y2, x1: options.x1, x2: options.x2});
 			updateThumbnail($field, $field.find('.crop-stage img.crop-image').get(0), {y1: options.y1, y2: options.y2, x1: options.x1, x2: options.x2});
 		}
 	}
