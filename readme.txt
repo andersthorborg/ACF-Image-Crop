@@ -3,7 +3,7 @@ Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 0.7
+Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,9 @@ function my_register_fields()
 
 
 == Changelog ==
+
+= 0.8 =
+* Fixed an issue resulting in a black image, when image was cropped without moving the crop handles
 
 = 0.7 =
 * Fixed return types other than image id causing fatal error
