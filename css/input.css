@@ -32,7 +32,7 @@
 	background-color: #fff;
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 	padding:40px;
-	z-index: 100;
+	z-index:99999;
 
 }
 .field_type-image_crop.cropping .has-image, .field_type-image_crop.cropping .crop-section{
@@ -60,4 +60,5 @@
 	right:0px;
 	bottom:0px;
 	background-color: rgba(0,0,0,0.8);
+	z-index:99998;
 }
