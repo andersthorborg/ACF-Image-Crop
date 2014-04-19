@@ -129,6 +129,9 @@
         $options.data('x2', selection.x2);
         $options.data('y1', selection.y1);
         $options.data('y2', selection.y2);
+
+        $('.crop-preview-size-width').text( selection.x2 - selection.x1 );
+        $('.crop-preview-size-height').text( selection.y2 - selection.y1 );
 	}
 
 	function updateThumbnail($field, img, selection){

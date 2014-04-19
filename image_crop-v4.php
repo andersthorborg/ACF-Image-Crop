@@ -302,7 +302,7 @@ class acf_field_image_crop extends acf_field_image
 				<?php endif ?>
 				</div>
 				<div class="crop-preview">
-					<h4>Preview</h4>
+					<h4>Preview (<span class="crop-preview-size-width"></span> X <span class="crop-preview-size-height"></span>)</h4>
 					<div class="preview"></div>
 					<div class="crop-controls">
 						<a href="#" class="button button-large cancel-crop-button">Cancel</a> <a href="#" class="button button-large button-primary perform-crop-button">Crop!</a>
