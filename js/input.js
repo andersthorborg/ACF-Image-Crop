@@ -31,6 +31,7 @@
 						if($field.find('img.crop-image').length == 0){
 							$field.find('.crop-action').append($('<img class="crop-image" src="#"/>'));
 						}
+						field.find('img.crop-image').wrap('<div class="crop-action-selection"></div>');
 						$field.find('img.crop-image').attr('src', data['url']);						
 						$field.find('img.crop-image').data('width', data['width']);						
 						$field.find('img.crop-image').data('height', data['height']);						
@@ -90,7 +91,11 @@
 		    imageWidth:$options.find('.crop-stage img.crop-image').data('width'),
 		    imageHeight:$options.find('.crop-stage img.crop-image').data('height'),
 		    x1: 0,
-		    y1: 0
+		    y1: 0,
+		    parent: $field.find('.crop-action-selection'),
+		    onInit: function() {
+		    	$field.find('.crop-action-selection').find('div').css({ 'position': 'absolute' })
+		    }
 		};
 		if($options.data('crop-type') == 'hard'){
 			options.aspectRatio = $options.data('width') + ':' + $options.data('height');

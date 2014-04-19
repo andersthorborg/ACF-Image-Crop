@@ -295,20 +295,24 @@ class acf_field_image_crop extends acf_field_image
 		</div>
 		<div class="crop-section">
 			<div class="crop-stage">
-				<div class="crop-action">
-					<h4>Crop the image</h4>
-				<?php if ($originalImage ): ?>
-					<img class="crop-image" src="<?php echo $originalImage[0] ?>" data-width="<?php echo $originalImage[1] ?>" data-height="<?php echo $originalImage[2] ?>" alt="">
-				<?php endif ?>
-				</div>
-				<div class="crop-preview">
-					<h4>Preview (<span class="crop-preview-size-width"></span> X <span class="crop-preview-size-height"></span>)</h4>
-					<div class="preview"></div>
-					<div class="crop-controls">
-						<a href="#" class="button button-large cancel-crop-button">Cancel</a> <a href="#" class="button button-large button-primary perform-crop-button">Crop!</a>
+				<div class="crop-stage-inner">
+					<div class="crop-action">
+						<h4>Crop the image</h4>
+						<div class="crop-action-selection"></div>
+					<?php if ($originalImage ): ?>
+						<img class="crop-image" src="<?php echo $originalImage[0] ?>" data-width="<?php echo $originalImage[1] ?>" data-height="<?php echo $originalImage[2] ?>" alt="">
+					<?php endif ?>
 					</div>
+					<div class="crop-preview">
+						<h4>Preview (<span class="crop-preview-size-width"></span> X <span class="crop-preview-size-height"></span>)</h4>
+
+						<div class="preview"></div>
+						<div class="crop-controls">
+							<a href="#" class="button button-large cancel-crop-button">Cancel</a> <a href="#" class="button button-large button-primary perform-crop-button">Crop!</a>
+						</div>
+					</div>
+					<!-- <img  src="<?php echo $o['url']; ?>" alt=""/> -->
 				</div>
-				<!-- <img  src="<?php echo $o['url']; ?>" alt=""/> -->
 			</div>
 			<a href="#" class="button button-large init-crop-button">Crop</a>					
 		</div>

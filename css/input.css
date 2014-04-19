@@ -1,9 +1,11 @@
 .field_type-image_crop .crop-stage .crop-image{
 	max-width:100%;
+	margin: 0 !important;
 }
 .field_type-image_crop .crop-stage .crop-action{
 	float:left;
 	width:65%;
+	position: relative;
 }
 .field_type-image_crop .crop-stage .crop-preview{
 	float:right;
@@ -12,28 +14,38 @@
 .field_type-image_crop .crop-stage .crop-preview .preview{
 	width:100%;
 }
-
+.field_type-image_crop .crop-stage .crop-action-selection {
+	position: relative;
+}
 .field_type-image_crop .crop-stage .crop-preview .crop-controls{
 	padding-top:20px;
-	clear: both;
+	clear:both;
 }
-
 .field_type-image_crop .crop-section .crop-stage, .field_type-image_crop.cropping .image-section, .field_type-image_crop.cropping .init-crop-button{
 	display:none;
 }
-.field_type-image_crop.cropping .crop-stage {
+.field_type-image_crop.cropping .crop-stage .crop-stage-inner {
 	display:block;
-	position:fixed;
-	top:60px;
 	width:800px;
-	left:50%;
-	margin-left:-440px;
 	height:auto;
-	background-color: #fff;
-	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+	background-color:#fff;
+	box-shadow:0px 0px 3px rgba(0,0,0,0.5);
 	padding:40px;
+	margin:40px auto;
+	overflow:hidden;
+	text-align:left;
+	
+}
+.field_type-image_crop.cropping .crop-stage {
+	position:fixed;
+	display:block;
+	height:100%;
+	width:100%;
+	left:0;
+	top:0;
+	overflow-y:scroll;
 	z-index:99999;
-
+	text-align:center;
 }
 .field_type-image_crop.cropping .has-image, .field_type-image_crop.cropping .crop-section{
 	width:100%;
@@ -51,7 +63,7 @@
 }
 
 .button.init-crop-button{
-	margin-top: 20px;
+	margin-top:20px;
 }
 #acf-image-crop-overlay{
 	position:fixed;
