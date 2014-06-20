@@ -2,8 +2,8 @@
 Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: 0.8
+Tested up to: 3.9.1
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,9 +16,11 @@ The field gives the developer/administrator the option to predefine a size for t
 
 The plugin supports the defined image sizes as well as a custom option, enabling the developer to specify the dimensions from within the field edit screen.
 
-The field can be configured to enforce a hard crop or a minimal-dimension-based crop. The hard crop will lock the aspect ratio of the crop where as the minimal-dimension-based crop will not allow the user to crop the image below the specified dimensions. 
+The field can be configured to enforce a hard crop or a minimal-dimension-based crop. The hard crop will lock the aspect ratio of the crop where as the minimal-dimension-based crop will not allow the user to crop the image below the specified dimensions.
 
-This plugin diverts from plugins like [Manual Image Crop](http://wordpress.org/plugins/manual-image-crop/) in that when the user crops an image, a new attachment is generated, so that the relevant crop only applies in the context it is edited. It also spares the user from dealing with the concept of various image sizes. (This does however have the potential of over-crowding the media-directory with differently cropped versions of images).
+This plugin diverts from plugins like [Manual Image Crop](http://wordpress.org/plugins/manual-image-crop/) in that when the user crops an image, a new attachment is generated, so that the relevant crop only applies in the context it is edited. It also keeps the user from dealing with the concept of various image sizes.
+
+As of version 1.0 the field can be configured to either create the cropped image as a media-item (the default behavior) or simply create it and refer directly to the file without adding it to the media library. This will prevent the media library from being cluttered with several cropped versions of the same image. When this option is selected the only available return type for the field is URL.
 
 = Compatibility =
 
@@ -58,6 +60,10 @@ function my_register_fields()
 
 
 == Changelog ==
+
+= 1.0 =
+* Added option to save the image to media library or refer directly to the created image, not using the media library.
+* Added better compatibility with the native image field making it possible to migrate from the regular image field to the crop-image field without losing the images currently attached. (It doesn't work the other way around)
 
 = 0.8 =
 * Fixed an issue resulting in a black image, when image was cropped without moving the crop handles
