@@ -3,7 +3,7 @@ Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,10 @@ function my_register_fields()
 
 
 == Changelog ==
+
+= 1.1 =
+* Added ACF5 compatibility.
+* Please report any compatibility issues. As this has been an urgent feature request I have not had as much time for testing as I would have liked.
 
 = 1.0 =
 * Added option to save the image to media library or refer directly to the created image, not using the media library.
