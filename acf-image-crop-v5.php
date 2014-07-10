@@ -273,9 +273,6 @@ class acf_field_image_crop extends acf_field_image {
             }
         }
 
-        echo 'w: ' . $width;
-        echo 'h: ' . $height;
-
         // vars
         $div_atts = array(
             'class'                 => 'acf-image-uploader acf-cf acf-image-crop',
@@ -298,8 +295,6 @@ class acf_field_image_crop extends acf_field_image {
             'data-cropped-image'    => json_encode($imageData->cropped_image),
             'class'                 => 'acf-image-value'
         );
-
-        print_r($field);
 
         // has value?
         if($imageData->original_image){
