@@ -61,7 +61,6 @@ function my_register_fields()
 
 == Changelog ==
 
-
 = 1.1.1 =
 * Removed unsued references and that caused php warnings
 * Added a missing default value that caused a php warning

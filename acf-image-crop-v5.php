@@ -443,8 +443,6 @@ class acf_field_image_crop extends acf_field_image {
         wp_register_script('acf-input-image_crop', "{$dir}js/input.js", array('acf-input', 'imgareaselect'));
 
         wp_register_style('acf-input-image_crop', "{$dir}css/input.css", array('acf-input'));
-        //wp_register_script( 'jcrop', includes_url( 'js/jcrop/jquery.Jcrop.min.css' ));
-
 
         // scripts
         wp_enqueue_script(array(
@@ -465,6 +463,7 @@ class acf_field_image_crop extends acf_field_image {
     function perform_crop(){
         $targetWidth = $_POST['target_width'];
         $targetHeight = $_POST['target_height'];
+
         $saveToMediaLibrary = isset($_POST['save_to_media_library']) && $_POST['save_to_media_library'] == 'yes';
         $imageData = $this->generate_cropped_image($_POST['id'], $_POST['x1'], $_POST['x2'], $_POST['y1'], $_POST['y2'], $targetWidth, $targetHeight, $saveToMediaLibrary, $_POST['preview_size']);
         // $previewUrl = wp_get_attachment_image_src( $id, $_POST['preview_size']);
