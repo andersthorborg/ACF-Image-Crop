@@ -49,7 +49,8 @@ class acf_field_image_crop extends acf_field_image {
             'preview_size' => 'medium',
             'save_format' => 'id',
             'save_in_media_library' => 'yes',
-            'target_size' => 'thumbnail'
+            'target_size' => 'thumbnail',
+            'library' => 'all'
         );
 
         // add ajax action to be able to retrieve full image size via javascript
