@@ -485,7 +485,7 @@ class acf_field_image_crop extends acf_field_image
 
 
                 // register acf scripts
-                wp_register_script('acf-input-image_crop', $this->settings['dir'] . 'js/input.js', array('acf-input', 'imgareaselect'), $this->settings['version']);
+                wp_register_script('acf-input-image_crop', $this->settings['dir'] . 'js/input-v4.js', array('acf-input', 'imgareaselect'), $this->settings['version']);
 
                 wp_register_style('acf-input-image_crop', $this->settings['dir'] . 'css/input.css', array('acf-input'), $this->settings['version']);
                 wp_register_script( 'jcrop', includes_url( 'js/jcrop/jquery.Jcrop.min.css' ));
@@ -522,7 +522,7 @@ class acf_field_image_crop extends acf_field_image
     function field_group_admin_enqueue_scripts()
     {
         // Note: This function can be removed if not used
-    	wp_register_script('acf-input-image-crop-options', $this->settings['dir'] . 'js/options.js', array('jquery'), $this->settings['version']);
+    	wp_register_script('acf-input-image-crop-options', $this->settings['dir'] . 'js/options-v4.js', array('jquery'), $this->settings['version']);
     	wp_enqueue_script( 'acf-input-image-crop-options');
 
     	wp_register_style('acf-input-image-crop-options', $this->settings['dir'] . 'css/options.css');

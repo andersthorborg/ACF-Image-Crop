@@ -11,66 +11,32 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
-class acf_field_image_crop_plugin
-{
-	/*
-	*  Construct
-	*
-	*  @description:
-	*  @since: 3.6
-	*  @created: 1/04/13
-	*/
-
-	function __construct()
-	{
-		// set text domain
-		/*
-		$domain = 'acf-image_crop';
-		$mofile = trailingslashit(dirname(__File__)) . 'lang/' . $domain . '-' . get_locale() . '.mo';
-		load_textdomain( $domain, $mofile );
-		*/
+// 1. set text domain
+// Reference: https://codex.wordpress.org/Function_Reference/load_plugin_textdomain
+load_plugin_textdomain( 'acf-image_crop', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
 
 
-		// version 4+
-		add_action('acf/register_fields', array($this, 'register_fields'));
 
 
-		// version 3-
-		add_action('init', array( $this, 'init' ), 5);
-	}
-
-
-	/*
-	*  Init
-	*
-	*  @description:
-	*  @since: 3.6
-	*  @created: 1/04/13
-	*/
-
-	function init()
-	{
-		if(function_exists('register_field'))
-		{
-			register_field('acf_field_image_crop', dirname(__File__) . '/image_crop-v3.php');
-		}
-	}
-
-	/*
-	*  register_fields
-	*
-	*  @description:
-	*  @since: 3.6
-	*  @created: 1/04/13
-	*/
-
-	function register_fields()
-	{
-		include_once('image_crop-v4.php');
-	}
+// 2. Include field type for ACF5
+// $version = 5 and can be ignored until ACF6 exists
+function include_field_types_image_crop( $version ) {
+	include_once('acf-image-crop-v5.php');
 
 }
 
-new acf_field_image_crop_plugin();
+add_action('acf/include_field_types', 'include_field_types_image_crop');
+
+
+
+
+// 3. Include field type for ACF4
+function register_fields_image_crop() {
+
+	include_once('acf-image-crop-v4.php');
+
+}
+
+add_action('acf/register_fields', 'register_fields_image_crop');
 
 ?>
