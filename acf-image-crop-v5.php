@@ -329,7 +329,6 @@ class acf_field_image_crop extends acf_field_image {
                         <a href="#" class="button button-large cancel-crop-button">Cancel</a> <a href="#" class="button button-large button-primary perform-crop-button">Crop!</a>
                     </div>
                 </div>
-                <!-- <img  src="<?php echo $o['url']; ?>" alt=""/> -->
             </div>
             <a href="#" class="button button-large init-crop-button">Crop</a>
         </div>
