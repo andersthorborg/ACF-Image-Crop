@@ -273,13 +273,16 @@ class acf_field_image_crop extends acf_field_image {
             }
         }
 
+        echo 'w: ' . $width;
+        echo 'h: ' . $height;
+
         // vars
         $div_atts = array(
             'class'                 => 'acf-image-uploader acf-cf acf-image-crop',
             'data-crop_type'        => $field['crop_type'],
             'data-target_size'      => $field['target_size'],
-            'data-width'            => $field['width'],
-            'data-height'           => $field['height'],
+            'data-width'            => $width,
+            'data-height'           => $height,
             'data-force_crop'       => $field['force_crop'] == 'yes' ? 'true' : 'false',
             'data-save_in_media_library' => $field['save_in_media_library'] == 'yes' ? 'true' : 'false',
             'data-save_format'      => $field['save_format'],
@@ -296,6 +299,7 @@ class acf_field_image_crop extends acf_field_image {
             'class'                 => 'acf-image-value'
         );
 
+        print_r($field);
 
         // has value?
         if($imageData->original_image){
