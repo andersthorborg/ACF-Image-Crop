@@ -465,7 +465,7 @@ class acf_field_image_crop extends acf_field_image {
     function perform_crop(){
         $targetWidth = $_POST['target_width'];
         $targetHeight = $_POST['target_height'];
-        $saveToMediaLibrary = $_POST['save_to_media_library'] == 'yes';
+        $saveToMediaLibrary = isset($_POST['save_to_media_library']) && $_POST['save_to_media_library'] == 'yes';
         $imageData = $this->generate_cropped_image($_POST['id'], $_POST['x1'], $_POST['x2'], $_POST['y1'], $_POST['y2'], $targetWidth, $targetHeight, $saveToMediaLibrary, $_POST['preview_size']);
         // $previewUrl = wp_get_attachment_image_src( $id, $_POST['preview_size']);
         // $fullUrl = wp_get_attachment_image_src( $id, 'full');
