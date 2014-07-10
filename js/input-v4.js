@@ -1,68 +1,83 @@
 (function($){
 
 
-	function initialize_field( $el ) {
-		var $field = $el, $options = $el.find('.acf-image-uploader');
-		$field.find('.acf-image-value').on('change', function(){
-			var originalImage = $(this).val();
-			if($(this).val()){
-				$field.removeClass('invalid');
-				$field.find('.init-crop-button').removeAttr('disabled');
-				$field.find('.acf-image-value').data('original-image', originalImage);
-				$field.find('.acf-image-value').data('cropped-image', originalImage);
-				$field.find('.acf-image-value').data('cropped', false);
-				$.post(ajaxurl, {action: 'acf_image_crop_get_image_size', image_id: originalImage}, function(data, textStatus, xhr) {
-					console.log('response', data);
-					if($field.find('img.crop-image').length == 0){
-						$field.find('.crop-action').append($('<img class="crop-image" src="#"/>'));
-					}
-					$field.find('img.crop-image').attr('src', data['url']);
-					console.log(data['width']);
-					$field.find('img.crop-image').data('width', data['width']);
-					$field.find('img.crop-image').data('height', data['height']);
-					var warnings = [];
-					var valid = true;
-					if($options.data('width') && data['width'] < $options.data('width')){
-						warnings.push('Width should be at least: ' + $options.data('width') + 'px (Selected image width: ' + data['width'] + 'px)');
-						valid = false;
-					}
-					if($options.data('height') && data['height'] < $options.data('height')){
-						warnings.push('Height should be at least: ' + $options.data('height') + 'px (Selected image height: ' + data['height'] + 'px)');
-						valid = false;
-					}
-					if(!valid){
-						$field.addClass('invalid');
-						$field.find('.init-crop-button').attr('disabled', 'disabled');
-						alert('Warning: The selected image is smaller than the required size:\n' + warnings.join('\n'));
-					}
-					else{
-						if($options.data('force-crop')){
-							initCrop($field);
+	/*
+	*  acf/setup_fields
+	*
+	*  This event is triggered when ACF adds any new elements to the DOM.
+	*
+	*  @type	function
+	*  @since	1.0.0
+	*  @date	01/01/12
+	*
+	*  @param	event		e: an event object. This can be ignored
+	*  @param	Element		postbox: An element which contains the new HTML
+	*
+	*  @return	N/A
+	*/
+
+	$(document).on('acf/setup_fields', function(e, postbox){
+		$(postbox).find('.field_type-image_crop').each(function(){
+			var $field = $(this), $options = $field.find('.acf-image-uploader');
+			$field.find('.acf-image-value').on('change', function(){
+				var originalImage = $(this).val();
+				if($(this).val()){
+					$field.removeClass('invalid');
+					$field.find('.init-crop-button').removeAttr('disabled');
+					$field.find('.acf-image-value').data('original-image', originalImage);
+					$field.find('.acf-image-value').data('cropped-image', originalImage);
+					$field.find('.acf-image-value').data('cropped', false);
+					$.post(ajaxurl, {action: 'acf_image_crop_get_image_size', image_id: originalImage}, function(data, textStatus, xhr) {
+						if($field.find('img.crop-image').length == 0){
+							$field.find('.crop-action').append($('<img class="crop-image" src="#"/>'));
 						}
-					}
+						$field.find('img.crop-image').attr('src', data['url']);
+						$field.find('img.crop-image').data('width', data['width']);
+						$field.find('img.crop-image').data('height', data['height']);
+						var warnings = [];
+						var valid = true;
+						if($options.data('width') && data['width'] < $options.data('width')){
+							warnings.push('Width should be at least: ' + $options.data('width') + 'px (Selected image width: ' + data['width'] + 'px)');
+							valid = false;
+						}
+						if($options.data('height') && data['height'] < $options.data('height')){
+							warnings.push('Height should be at least: ' + $options.data('height') + 'px (Selected image height: ' + data['height'] + 'px)');
+							valid = false;
+						}
+						if(!valid){
+							$field.addClass('invalid');
+							$field.find('.init-crop-button').attr('disabled', 'disabled');
+							alert('Warning: The selected image is smaller than the required size:\n' + warnings.join('\n'));
+						}
+						else{
+							if($options.data('force-crop')){
+								initCrop($field);
+							}
+						}
 
-				}, 'json');
-				updateFieldValue($field);
-			}
-			else{
-				//Do nothing
-			}
+					}, 'json');
+					updateFieldValue($field);
+				}
+				else{
+					//Do nothing
+				}
 
-		});
-		$field.find('.init-crop-button').click(function(e){
-			e.preventDefault();
-			initCrop($field);
-		});
-		$field.find('.perform-crop-button').click(function(e){
-			e.preventDefault();
-			performCrop($field);
-		});
-		$field.find('.cancel-crop-button').click(function(e){
-			e.preventDefault();
-			cancelCrop($field);
+			})
+			$field.find('.init-crop-button').click(function(e){
+				e.preventDefault();
+				initCrop($field);
+			});
+			$field.find('.perform-crop-button').click(function(e){
+				e.preventDefault();
+				performCrop($field);
+			});
+			$field.find('.cancel-crop-button').click(function(e){
+				e.preventDefault();
+				cancelCrop($field);
+			});
 		});
 
-	}
+	});
 
 	function initCrop($field){
 		var $options = $field.find('.acf-image-uploader');
@@ -77,14 +92,14 @@
 		    x1: 0,
 		    y1: 0
 		};
-		if($options.data('crop_type') == 'hard'){
+		if($options.data('crop-type') == 'hard'){
 			options.aspectRatio = $options.data('width') + ':' + $options.data('height');
 			options.minWidth = $options.data('width');
 			options.minHeight = $options.data('height');
 			options.x2 = $options.data('width');
 			options.y2 = $options.data('height');
 		}
-		else if($options.data('crop_type') == 'min'){
+		else if($options.data('crop-type') == 'min'){
 			if($options.data('width')){
 				options.minWidth = $options.data('width');
 				options.x2 = $options.data('width');
@@ -154,8 +169,8 @@
 			var $options = $field.find('.acf-image-uploader');
 			var targetWidth = $options.data('width');
 			var targetHeight = $options.data('height');
-			var saveToMediaLibrary = $options.data('save_to_media_library');
-			if($options.data('crop_type') == 'min'){
+			var saveToMediaLibrary = $options.data('save-to-media-library');
+			if($options.data('crop-type') == 'min'){
 				targetWidth = $options.data('x2') - $options.data('x1');
 				targetHeight = $options.data('y2') - $options.data('y1');
 			}
@@ -172,7 +187,7 @@
 				save_to_media_library: saveToMediaLibrary
 			}
 			$.post(ajaxurl, data, function(data, textStatus, xhr) {
-				$field.find('[data-name=value-url]').attr('src', data.preview_url);
+				$field.find('.acf-image-image').attr('src', data.preview_url);
 				$field.find('.acf-image-value').data('cropped-image', data.value);
 				$field.find('.acf-image-value').data('cropped', true);
 				updateFieldValue($field);
@@ -207,66 +222,5 @@
 		$.post(ajaxurl, {images: []}, function(data, textStatus, xhr) {
 		}, 'json');
 	}
-
-
-	if( typeof acf.add_action !== 'undefined' ) {
-
-		/*
-		*  ready append (ACF5)
-		*
-		*  These are 2 events which are fired during the page load
-		*  ready = on page load similar to $(document).ready()
-		*  append = on new DOM elements appended via repeater field
-		*
-		*  @type	event
-		*  @date	20/07/13
-		*
-		*  @param	$el (jQuery selection) the jQuery element which contains the ACF fields
-		*  @return	n/a
-		*/
-
-		acf.add_action('ready append', function( $el ){
-
-			// search $el for fields of type 'image_crop'
-			acf.get_fields({ type : 'image_crop'}, $el).each(function(){
-
-				initialize_field( $(this) );
-
-			});
-
-		});
-
-
-	} else {
-
-
-		/*
-		*  acf/setup_fields (ACF4)
-		*
-		*  This event is triggered when ACF adds any new elements to the DOM.
-		*
-		*  @type	function
-		*  @since	1.0.0
-		*  @date	01/01/12
-		*
-		*  @param	event		e: an event object. This can be ignored
-		*  @param	Element		postbox: An element which contains the new HTML
-		*
-		*  @return	n/a
-		*/
-
-		$(document).live('acf/setup_fields', function(e, postbox){
-
-			$(postbox).find('.field[data-field_type="image_crop"]').each(function(){
-
-				initialize_field( $(this) );
-
-			});
-
-		});
-
-
-	}
-
 
 })(jQuery);
