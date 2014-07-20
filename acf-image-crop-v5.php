@@ -58,6 +58,12 @@ class acf_field_image_crop extends acf_field_image {
         add_action( 'wp_ajax_acf_image_crop_perform_crop', array( &$this, 'perform_crop' ) );
 
 
+        // add filter to media query function to hide cropped images from media library
+        add_filter('ajax_query_attachments_args', array($this, 'filterMediaQuery'));
+
+        // Register extra fields on the media settings page on admin_init
+        add_action('admin_init', array($this, 'registerSettings'));
+
         /*
         *  l10n (array) Array of strings that are used in JavaScript. This allows JS strings to be translated in PHP and loaded via:
         *  var message = acf._e('image_crop', 'error');
@@ -282,7 +288,7 @@ class acf_field_image_crop extends acf_field_image {
             'data-width'            => $width,
             'data-height'           => $height,
             'data-force_crop'       => $field['force_crop'] == 'yes' ? 'true' : 'false',
-            'data-save_in_media_library' => $field['save_in_media_library'] == 'yes' ? 'true' : 'false',
+            'data-save_to_media_library' => $field['save_in_media_library'],
             'data-save_format'      => $field['save_format'],
             'data-preview_size'     => $field['preview_size'],
             'data-library'          => $field['library']
@@ -525,6 +531,7 @@ class acf_field_image_crop extends acf_field_image {
             $attachmentId = wp_insert_attachment( $attachment, $targetFilePath);
             $attachmentData = wp_generate_attachment_metadata( $attachmentId, $targetFilePath );
             wp_update_attachment_metadata( $attachmentId, $attachmentData );
+            add_post_meta($attachmentId, 'acf_is_cropped', 'true', true);
 
             // Add the id to the imageData-array
             $imageData['value'] = $attachmentId;
@@ -585,6 +592,64 @@ class acf_field_image_crop extends acf_field_image {
         $mediaDir = wp_upload_dir();
         return $mediaDir['baseurl'] . '/' .  $relativeUrl;
     }
+
+    function filterMediaQuery($args){
+        // get options
+        $options = get_option( 'acf_image_crop_settings' );
+        $hide = $options['hide_cropped'];
+
+        // If hide option is enabled, do not select items with the acf_is_cropped meta-field
+        if($hide){
+            $args['meta_query']= array(
+                array(
+                    'key' => 'acf_is_cropped',
+                    'compare' => 'NOT EXISTS'
+                )
+            );
+        }
+        return $args;
+    }
+
+
+    function registerSettings(){
+        add_settings_section(
+            'acf_image_crop_settings',
+            __('ACF Image Crop Settings','acf-image_crop'),
+            array($this, 'displayImageCropSettingsSection'),
+            'media'
+        );
+
+        register_setting(
+            'media',                                       // settings page
+            'acf_image_crop_settings'                     // option name
+        );
+
+        add_settings_field(
+            'acf_image_crop_hide_cropped',      // id
+            __('Hide cropped images from media dialog', 'acf-image_crop'),              // setting title
+            array($this, 'displayHideFromMediaInput'),    // display callback
+            'media',                 // settings page
+            'acf_image_crop_settings'                  // settings section
+        );
+    }
+
+    function displayHideFromMediaInput(){
+        // Get plugin options
+        $options = get_option( 'acf_image_crop_settings' );
+        $value = $options['hide_cropped'];
+
+        // echo the field
+        ?>
+    <input id='boss_email' name='acf_image_crop_settings[hide_cropped]'
+     type='checkbox' <?php echo $value ? 'checked' :  '' ?> value='true' />
+        <?php
+    }
+
+    function displayImageCropSettingsSection(){
+        echo '';
+    }
+
+
 
 
 
@@ -689,7 +754,7 @@ class acf_field_image_crop extends acf_field_image {
 
         $dir = plugin_dir_url( __FILE__ );
 
-        wp_register_script('acf-input-image-crop-options', "{$dir}js/options.js", array('jquery'), $this->settings['version']);
+        wp_register_script('acf-input-image-crop-options', "{$dir}js/options.js", array('jquery'));
         wp_enqueue_script( 'acf-input-image-crop-options');
 
         wp_register_style('acf-input-image-crop-options', "{$dir}css/options.css");
@@ -803,7 +868,6 @@ class acf_field_image_crop extends acf_field_image {
         if(!is_object($data)){
             return $value;
         }
-
         $value = $data->cropped_image;
 
         // format
@@ -824,6 +888,7 @@ class acf_field_image_crop extends acf_field_image {
         elseif( $field['save_format'] == 'object' )
         {
             if(is_numeric($data->cropped_image )){
+
                 $attachment = get_post( $data->cropped_image );
                 // validate
                 if( !$attachment )
@@ -869,11 +934,15 @@ class acf_field_image_crop extends acf_field_image {
             }
             elseif(is_array( $data->cropped_image)){
                 $value = array(
-                    'url' => $this->getAbsoluteImageUrl($data->cropped_image['image']),
+                    'url' => $this->getAbsoluteImageUrl($data->cropped_image['image'])
+                );
+            }
+            elseif(is_object($data->cropped_image)){
+                $value = array(
+                    'url' => $this->getAbsoluteImageUrl($data->cropped_image->image)
                 );
             }
             else{
-
                 //echo 'ELSE';
             }
 

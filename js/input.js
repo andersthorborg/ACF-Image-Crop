@@ -12,12 +12,10 @@
 				$field.find('.acf-image-value').data('cropped-image', originalImage);
 				$field.find('.acf-image-value').data('cropped', false);
 				$.post(ajaxurl, {action: 'acf_image_crop_get_image_size', image_id: originalImage}, function(data, textStatus, xhr) {
-					console.log('response', data);
 					if($field.find('img.crop-image').length == 0){
 						$field.find('.crop-action').append($('<img class="crop-image" src="#"/>'));
 					}
 					$field.find('img.crop-image').attr('src', data['url']);
-					console.log(data['width']);
 					$field.find('img.crop-image').data('width', data['width']);
 					$field.find('img.crop-image').data('height', data['height']);
 					var warnings = [];
@@ -36,7 +34,7 @@
 						alert('Warning: The selected image is smaller than the required size:\n' + warnings.join('\n'));
 					}
 					else{
-						if($options.data('force-crop')){
+						if($options.data('force_crop')){
 							initCrop($field);
 						}
 					}

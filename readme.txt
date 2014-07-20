@@ -3,7 +3,7 @@ Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.1.1
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,18 @@ function my_register_fields()
 
 
 == Changelog ==
+
+= 1.1.4 =
+* Fixed an issue causing a php warning when editing custom fields
+* Fixed a js-issue causing image-crop-field hiding all subfields when editing repeater-/flexible content-fields
+
+= 1.1.3 =
+* Fixed another issue with save to media option
+
+= 1.1.2 =
+* Fixed issue with force crop option
+* Fixed issue with save to media option
+* Fixed issue with return type object
 
 = 1.1.1 =
 * Removed unsued references and that caused php warnings
