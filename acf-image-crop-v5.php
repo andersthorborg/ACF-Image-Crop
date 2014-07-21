@@ -70,7 +70,11 @@ class acf_field_image_crop extends acf_field_image {
         */
 
         $this->l10n = array(
-            'error' => __('Error! Please enter a higher value', 'acf-image_crop'),
+			'width_should_be'	=> __( 'Width should be at least: ','acf-image_crop' ),
+			'height_should_be'	=> __( 'Height should be at least: ','acf-image_crop' ),
+			'selected_width'	=> __( 'Selected image width: ','acf-image_crop' ),
+			'selected_height'	=> __( 'Selected image height: ','acf-image_crop' ),
+			'size_warning'		=> __( 'Warning: The selected image is smaller than the required size!','acf-image_crop' ),
         );
 
 
@@ -153,7 +157,8 @@ class acf_field_image_crop extends acf_field_image {
             'instructions'  => __('Leave blank for no restriction (does not work with hard crop option)','acf-image_crop'),
             'type'          => 'number',
             'name'          => 'width',
-            'class'         => 'custom-target-width custom-target-dimension'
+            'class'         => 'custom-target-width custom-target-dimension',
+			'append'		=> 'px'
         ));
 
         // height - conditional: target_size == 'custom'
@@ -162,15 +167,17 @@ class acf_field_image_crop extends acf_field_image {
             'instructions'  => __('Leave blank for no restriction (does not work with hard crop option)','acf-image_crop'),
             'type'          => 'number',
             'name'          => 'height',
-            'class'         => 'custom-target-height custom-target-dimension'
+            'class'         => 'custom-target-height custom-target-dimension',
+			'append'		=> 'px'
         ));
 
         // preview_size
         acf_render_field_setting( $field, array(
-            'label'         => __('Preview size','acf-image_crop'),
-            'instructions'  => __('Select the preview size for this field','acf-image_crop'),
-            'type'          => 'select',
+			'label'			=> __('Preview Size','acf'),
+			'instructions'	=> __('Shown when entering data','acf'),
+			'type'			=> 'radio',
             'name'          => 'preview_size',
+			'layout'		=> 'horizontal',
             'choices'       =>  acf_get_image_sizes()
         ));
 
@@ -181,7 +188,7 @@ class acf_field_image_crop extends acf_field_image {
             'type'          => 'radio',
             'layout'        => 'horizontal',
             'name'          => 'force_crop',
-            'choices'       =>  array('yes' => 'Yes', 'no' => 'No')
+			'choices'       =>  array('yes' => __('Yes', 'acf'), 'no' => __('No', 'acf'))
         ));
 
         // save_in_media_library
@@ -192,22 +199,22 @@ class acf_field_image_crop extends acf_field_image {
             'layout'        => 'horizontal',
             'name'          => 'save_in_media_library',
             'class'         => 'save-in-media-library-select',
-            'choices'       =>  array('yes' => 'Yes', 'no' => 'No')
+            'choices'       =>  array('yes' => __('Yes', 'acf'), 'no' => __('No', 'acf'))
         ));
 
 
         // return_format
         acf_render_field_setting( $field, array(
-            'label'         => __('Return Value','acf-image_crop'),
-            'instructions'  => __('Specify the returned value on front end','acf-image_crop'),
+            'label'         => __('Return Value','acf'),
+			'instructions'  => __('Specify the returned value on front end','acf'),
             'type'          => 'radio',
             'name'          => 'save_format',
             'layout'        => 'horizontal',
             'class'         =>  'return-value-select',
             'choices'       => array(
-                'url'           => __("Image URL",'acf'),
-                'id'            => __("Image ID",'acf'),
-                'object'         => __("Image Object",'acf')
+                'object'		=> __("Image Array",'acf'),
+				'url'			=> __("Image URL",'acf'),
+				'id'			=> __("Image ID",'acf')
             )
         ));
 
@@ -323,20 +330,20 @@ class acf_field_image_crop extends acf_field_image {
         <div class="crop-section">
             <div class="crop-stage">
                 <div class="crop-action">
-                    <h4>Crop the image</h4>
+                    <h4><?php _e('Crop the image','acf-image_crop'); ?></h4>
                 <?php if ($imageData->original_image ): ?>
                     <img class="crop-image" src="<?php echo $imageData->original_image_url ?>" data-width="<?php echo $imageData->original_image_width ?>" data-height="<?php echo $imageData->original_image_height ?>" alt="">
                 <?php endif ?>
                 </div>
                 <div class="crop-preview">
-                    <h4>Preview</h4>
+                    <h4><?php _e('Preview','acf-image_crop'); ?></h4>
                     <div class="preview"></div>
                     <div class="crop-controls">
-                        <a href="#" class="button button-large cancel-crop-button">Cancel</a> <a href="#" class="button button-large button-primary perform-crop-button">Crop!</a>
+                        <a href="#" class="button button-large cancel-crop-button"><?php _e('Cancel','acf-image_crop'); ?></a> <a href="#" class="button button-large button-primary perform-crop-button"><?php _e('Crop!','acf-image_crop'); ?></a>
                     </div>
                 </div>
             </div>
-            <a href="#" class="button button-large init-crop-button">Crop</a>
+            <a href="#" class="button button-large init-crop-button"><?php _e('Crop','acf-image_crop'); ?></a>
         </div>
     </div>
     <div class="view hide-if-value">
