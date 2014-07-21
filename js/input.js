@@ -21,17 +21,17 @@
 					var warnings = [];
 					var valid = true;
 					if($options.data('width') && data['width'] < $options.data('width')){
-						warnings.push('Width should be at least: ' + $options.data('width') + 'px (Selected image width: ' + data['width'] + 'px)');
+					warnings.push( acf._e('image_crop', 'width_should_be') + $options.data('width') + 'px\n' + acf._e('image_crop', 'selected_width') + data['width'] + 'px');
 						valid = false;
 					}
 					if($options.data('height') && data['height'] < $options.data('height')){
-						warnings.push('Height should be at least: ' + $options.data('height') + 'px (Selected image height: ' + data['height'] + 'px)');
+						warnings.push(acf._e('image_crop', 'height_should_be') + $options.data('height') + 'px\n' + acf._e('image_crop', 'selected_height') + data['height'] + 'px');
 						valid = false;
 					}
 					if(!valid){
 						$field.addClass('invalid');
 						$field.find('.init-crop-button').attr('disabled', 'disabled');
-						alert('Warning: The selected image is smaller than the required size:\n' + warnings.join('\n'));
+						alert(acf._e('image_crop', 'size_warning') + '\n\n' + warnings.join('\n\n'));
 					}
 					else{
 						if($options.data('force_crop')){
