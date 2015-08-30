@@ -316,8 +316,8 @@ class acf_field_image_crop extends acf_field_image {
     </div>
     <div class="view show-if-value acf-soh">
         <ul class="acf-hl acf-soh-target">
-            <li><a class="acf-icon dark" data-name="edit-button" href="#"><i class="acf-sprite-edit"></i></a></li>
-            <li><a class="acf-icon dark" data-name="remove-button" href="#"><i class="acf-sprite-delete"></i></a></li>
+            <li><a class="acf-icon acf-icon-pencil dark" data-name="edit-button" href="#"><i class="acf-sprite-edit"></i></a></li>
+            <li><a class="acf-icon acf-icon-cancel dark" data-name="remove-button" href="#"><i class="acf-sprite-delete"></i></a></li>
         </ul>
         <img data-name="value-url" src="<?php echo $url; ?>" alt=""/>
         <div class="crop-section">
