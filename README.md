@@ -4,7 +4,7 @@
 
 Adds an 'Image with user-crop' field type for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) WordPress plugin.
 
-
+*Please note: This repository is not maintained anymore. Please check out the official Wordpress repo: https://wordpress.org/plugins/acf-image-crop-add-on/*
 
 -----------------------
 
