@@ -340,7 +340,7 @@ class acf_field_image_crop extends acf_field_image {
         </div>
     </div>
     <div class="view hide-if-value">
-        <p><?php _e('No image selected','acf'); ?> <a data-name="add-button" class="acf-button" href="#"><?php _e('Add Image','acf'); ?></a></p>
+        <p><?php _e('No image selected','acf'); ?> <a data-name="add-button" class="acf-button button" href="#"><?php _e('Add Image','acf'); ?></a></p>
     </div>
 </div>
 <?php
