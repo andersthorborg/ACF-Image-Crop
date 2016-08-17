@@ -368,7 +368,6 @@ function initialize_field( $el ) {
     }
 
     function updateThumbnail($field, img, selection){
-        console.log('updating thumbnail');
         var $options = $field.find('.acf-image-uploader');
         var div = $field.find('.crop-preview .preview');
         var targetWidth = $field.find('.crop-preview .preview').width();
