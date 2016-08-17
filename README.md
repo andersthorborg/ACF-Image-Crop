@@ -1,11 +1,11 @@
 # Advanced Custom Fields: Image Crop Add-on #
-**Contributors:** andersthorborg  
-**Tags:** afc, advanced custom fields, image crop, image, crop  
-**Requires at least:** 3.5  
-**Tested up to:** 4.6  
-**Stable tag:** 1.4.8  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+Contributors: andersthorborg
+Tags: afc, advanced custom fields, image crop, image, crop
+Requires at least: 3.5
+Tested up to: 4.6
+Stable tag: 1.4.8
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions
 
