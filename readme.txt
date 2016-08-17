@@ -2,8 +2,8 @@
 Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 1.1.4
+Tested up to: 4.3.1
+Stable tag: 1.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,54 @@ function my_register_fields()
 
 
 == Changelog ==
+
+= 1.4.7 =
+* Added compatibility with ACF PRO 5.4.2.2 icons
+
+= 1.4.6 =
+* Added compatibility with ACF 4.4.2 and ACF PRO 5.2.9
+
+= 1.4.5 =
+* Added compatibility with ACF 5.2.7
+* Added image quality filter (needs testing)
+
+= 1.4.4 =
+* Fixed migration from image field to not only return image ID
+* Fixed a js error in field settings caused by a change in class names in ACF
+
+= 1.4.3 =
+* Removed unused assets
+
+= 1.4.2 =
+* Improved migration from standard field to ACF crop field
+* Fixed and issue that caused warnings when options was not set
+* Fixed crop preview not showing correct crop position in some browsers
+* Improved error handling when server setup does not support image handling
+* Fixed original image data missing when saving to media library in v4
+* Improved error handling in v4
+
+= 1.4.1 =
+* Fixed issue with image not cropping in v4
+
+= 1.4 =
+* Fixed images with dot in the file name resulting in odd cropped image names
+* Fixed issues with php notices in v4
+* Fixed issues with broken image fields in v4
+* Temporarily fixed images smaller than preview size not being added (ACF bug)
+* Updated localization thanks to @tmconnect
+* Various tweaks and fixes by @tmconnect
+
+= 1.3 =
+* Updated to be compatible with original image field changes as of ACF Pro 5.0.8. IMPORTANT: As this is a quick fix to ensure compatability with the newest ACF PRO version it is not backwards compatible. If you are using ACF Pro 5.0.7 and below, please use version 1.2 of this add-on.
+
+= 1.2 =
+* Improved: Edit image is now working for most cropped image fields.
+* Fix: Wrong GUID for generated images that could cause issues when moving a site to a new location
+* Tweak: Added "original_image"-attribute when using return type "Object", containing the original image data.
+* Tweak: Return type "Object" is now available when not saving cropped image to media library. The data except from url, width and height is fetched from the original image.
+* Feature: It is now possible to hide cropped images from the media dialog. (See the new settings section) NB.: Only works for future cropped images.
+* Feature: Retina-mode, that makes the image field require and crop double the dimensions. Results in better integration with plugins like WP Retina 2x
+* Feature: Settings-seciton under Settings -> Media. Here you can choose to hide cropped images from the media dialog as well as enable/disable global retina mode.
 
 = 1.1.4 =
 * Fixed an issue causing a php warning when editing custom fields

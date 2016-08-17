@@ -1,0 +1,368 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Custom Fields: Image Crop Add-on v1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-09-13 13:45:02+0000\n"
+"Last-Translator: thomas <t.meyer@me.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: acf-image-crop-v4.php:23
+#: acf-image-crop-v5.php:32
+#@ default
+#@ acf-image_crop
+msgid "Image with user-crop"
+msgstr "Bild (mit Größenoption)"
+
+#: acf-image-crop-v4.php:24
+#@ acf
+msgid "Content"
+msgstr ""
+
+#: acf-image-crop-v4.php:105
+#: acf-image-crop-v5.php:133
+#@ acf
+#@ acf-image_crop
+msgid "Crop type"
+msgstr "Art Beschnitt"
+
+#: acf-image-crop-v4.php:106
+#: acf-image-crop-v5.php:134
+#@ acf
+#@ acf-image_crop
+msgid "Select the type of crop the user should perform"
+msgstr "Auswahl, wie der Beschnitt angewendet wird"
+
+#: acf-image-crop-v4.php:117
+#: acf-image-crop-v5.php:140
+#@ acf
+#@ acf-image_crop
+msgid "Hard crop"
+msgstr "Absoluter Beschnitt"
+
+#: acf-image-crop-v4.php:118
+#: acf-image-crop-v5.php:141
+#@ acf
+#@ acf-image_crop
+msgid "Minimal dimensions"
+msgstr "Mindestgröße"
+
+#: acf-image-crop-v4.php:127
+#@ acf
+msgid "Target Size"
+msgstr ""
+
+#: acf-image-crop-v4.php:128
+#: acf-image-crop-v4.php:176
+#: acf-image-crop-v5.php:147
+#@ acf
+#@ acf-image_crop
+msgid "Select the target size for this field"
+msgstr "Definiert die Zielgröße des beschnittenen Bildes"
+
+#: acf-image-crop-v4.php:132
+#: acf-image-crop-v5.php:151
+#@ acf
+#@ acf-image_crop
+msgid "Custom size"
+msgstr "Benutzerdefiniert"
+
+#: acf-image-crop-v4.php:147
+#@ acf
+msgid "Dimensions"
+msgstr ""
+
+#: acf-image-crop-v4.php:148
+#@ acf
+msgid "Enter the dimensions for the image."
+msgstr ""
+
+#: acf-image-crop-v4.php:148
+#@ acf
+msgid "Enter the minimum dimensions for the image. Leave fields blank for no minimum requirement."
+msgstr ""
+
+#: acf-image-crop-v4.php:175
+#: acf-image-crop-v5.php:183
+#: image_crop-v3.php:130
+#@ acf
+msgid "Preview Size"
+msgstr ""
+
+#: acf-image-crop-v4.php:193
+#: acf-image-crop-v5.php:192
+#@ acf
+#@ acf-image_crop
+msgid "Force crop"
+msgstr "Beschnitt starten"
+
+#: acf-image-crop-v4.php:194
+#@ acf
+msgid "Force the user to crop the image as soon at it is selected."
+msgstr ""
+
+#: acf-image-crop-v4.php:204
+#: acf-image-crop-v4.php:224
+#: acf-image-crop-v4.php:251
+#: acf-image-crop-v5.php:197
+#: acf-image-crop-v5.php:208
+#: acf-image-crop-v5.php:219
+#@ acf
+msgid "Yes"
+msgstr ""
+
+#: acf-image-crop-v4.php:205
+#: acf-image-crop-v4.php:225
+#: acf-image-crop-v4.php:252
+#: acf-image-crop-v5.php:197
+#: acf-image-crop-v5.php:208
+#: acf-image-crop-v5.php:219
+#@ acf
+msgid "No"
+msgstr ""
+
+#: acf-image-crop-v4.php:213
+#@ acf
+msgid "Save cropped image in media library"
+msgstr ""
+
+#: acf-image-crop-v4.php:214
+#@ acf
+msgid "If the cropped image is not saved in the media library, the \"Image URL\" is the only available return value."
+msgstr ""
+
+#: acf-image-crop-v4.php:260
+#: acf-image-crop-v5.php:225
+#@ acf
+msgid "Return Value"
+msgstr "Rückgabewert"
+
+#: acf-image-crop-v4.php:261
+#: acf-image-crop-v5.php:226
+#@ acf
+msgid "Specify the returned value on front end"
+msgstr "Legt den Rückgabewert im Front-End fest"
+
+#: acf-image-crop-v4.php:271
+#: acf-image-crop-v5.php:233
+#@ acf
+msgid "Image URL"
+msgstr ""
+
+#: acf-image-crop-v4.php:272
+#: acf-image-crop-v5.php:234
+#@ acf
+msgid "Image ID"
+msgstr ""
+
+#: acf-image-crop-v4.php:273
+#@ acf
+msgid "Image Object"
+msgstr ""
+
+#: acf-image-crop-v4.php:370
+#@ acf
+msgid "Remove"
+msgstr ""
+
+#: acf-image-crop-v4.php:371
+#@ acf
+msgid "Edit"
+msgstr ""
+
+#: acf-image-crop-v4.php:397
+#: acf-image-crop-v5.php:381
+#@ acf
+msgid "No image selected"
+msgstr ""
+
+#: acf-image-crop-v4.php:397
+#: acf-image-crop-v5.php:381
+#@ acf
+msgid "Add Image"
+msgstr ""
+
+#: acf-image-crop-v5.php:153
+#@ acf-image_crop
+msgid "Target size"
+msgstr "Zielgröße"
+
+#: acf-image-crop-v5.php:163
+#@ acf-image_crop
+msgid "Custom target width"
+msgstr "Benutzerdefinierte Breite"
+
+#: acf-image-crop-v5.php:164
+#: acf-image-crop-v5.php:174
+#@ acf-image_crop
+msgid "Leave blank for no restriction (does not work with hard crop option)"
+msgstr "Leer lassen für keine Einschränkung (\"Absoluter Beschnitt\" erfordert eine Eingabe)"
+
+#: acf-image-crop-v5.php:173
+#@ acf-image_crop
+msgid "Custom target height"
+msgstr "Benutzerdefinierte Höhe"
+
+#: acf-image-crop-v5.php:193
+#@ acf-image_crop
+msgid "Force the user to crop the image as soon at it is selected"
+msgstr "Öffnet das Bearbeitungsfenster für den Beschnitt, sobald das Bild ausgewählt ist."
+
+#: acf-image-crop-v5.php:202
+#@ acf-image_crop
+msgid "Save cropped image to media library"
+msgstr "Speichere beschnittenes Bild in der Mediathek"
+
+#: acf-image-crop-v5.php:203
+#@ acf-image_crop
+msgid "If the cropped image is not saved in the media library, \"Image URL\" is the only available return value."
+msgstr "Wenn das beschnittene Bild nicht in der Mediathek gespeichert wird, steht nur \"Bild URL\" als Rückgabewert zur Verfügung"
+
+#: acf-image-crop-v5.php:240
+#@ acf
+msgid "Library"
+msgstr ""
+
+#: acf-image-crop-v5.php:241
+#@ acf
+msgid "Limit the media library choice"
+msgstr ""
+
+#: acf-image-crop-v5.php:246
+#@ acf
+msgid "All"
+msgstr ""
+
+#: acf-image-crop-v5.php:247
+#@ acf
+msgid "Uploaded to post"
+msgstr ""
+
+#: acf-image-crop-v5.php:76
+#@ acf-image_crop
+msgid "Width should be at least: "
+msgstr "Breite mindestens: "
+
+#: acf-image-crop-v5.php:77
+#@ acf-image_crop
+msgid "Height should be at least: "
+msgstr "Höhe mindestens: "
+
+#: acf-image-crop-v5.php:78
+#@ acf-image_crop
+msgid "Selected image width: "
+msgstr "Breite ausgewähltes Bild: "
+
+#: acf-image-crop-v5.php:79
+#@ acf-image_crop
+msgid "Selected image height: "
+msgstr "Höhe ausgewähltes Bild: "
+
+#: acf-image-crop-v5.php:80
+#@ acf-image_crop
+msgid "Warning: The selected image is smaller than the required size!"
+msgstr "Warnung: Das ausgewählte Bild ist kleiner als die geforderte Mindestgröße!"
+
+#: image_crop-v3.php:30
+#@ default
+msgid "Image - Custom crop"
+msgstr ""
+
+#: image_crop-v3.php:131
+#@ acf
+msgid "Thumbnail is advised"
+msgstr ""
+
+#: image_crop-v3.php:142
+#@ default
+msgid "Thumbnail"
+msgstr ""
+
+#: image_crop-v3.php:143
+#@ default
+msgid "Something Else"
+msgstr ""
+
+#: acf-image-crop-v5.php:232
+#@ acf
+msgid "Image Array"
+msgstr ""
+
+#: acf-image-crop-v4.php:889
+#: acf-image-crop-v5.php:661
+#@ acf-image_crop
+msgid "ACF Image Crop Settings"
+msgstr "ACF Image Crop Einstellungen"
+
+#: acf-image-crop-v4.php:901
+#: acf-image-crop-v5.php:674
+#@ acf-image_crop
+msgid "Hide cropped images from media dialog"
+msgstr "Beschnittene Bilder in Medienübersicht ausblenden"
+
+#: acf-image-crop-v4.php:233
+#: acf-image-crop-v5.php:215
+#@ acf-image_crop
+msgid "Require and crop double the size set for this image. Enable this if you are using plugins like WP Retina 2x."
+msgstr "Retina Modus aktivieren - Der Anwender muss ein Bild in doppelter Größe auswählen. Diese Option sollte aktiviert werden, wenn ein Plugin wie z.B. WP Retina 2x aktiviert ist."
+
+#: acf-image-crop-v4.php:240
+#: acf-image-crop-v5.php:214
+#@ acf-image_crop
+msgid "Retina/@2x mode "
+msgstr "Retina/@2x Modus"
+
+#: acf-image-crop-v4.php:909
+#: acf-image-crop-v5.php:682
+#@ acf-image_crop
+msgid "Enable global retina mode (beta)"
+msgstr "Globalen Retina Modus (beta) aktivieren"
+
+#: acf-image-crop-v5.php:149
+#@ acf-image_crop
+msgid "Retina mode is enabled - user will be required to select an image twice this size"
+msgstr "Retina Modus ist aktiviert - Der Anwender muss ein Bild in doppelter Größe auswählen"
+
+#: acf-image-crop-v5.php:184
+#@ acf
+msgid "Shown when entering data"
+msgstr ""
+
+#: acf-image-crop-v5.php:357
+#@ acf-image_crop
+msgid "Crop the image"
+msgstr "Bildauschnitt wählen"
+
+#: acf-image-crop-v5.php:365
+#@ acf-image_crop
+msgid "Preview"
+msgstr "Vorschau"
+
+#: acf-image-crop-v5.php:370
+#@ acf-image_crop
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: acf-image-crop-v5.php:370
+#@ acf-image_crop
+msgid "Crop!"
+msgstr "Beschneiden"
+
+#: acf-image-crop-v5.php:376
+#@ acf-image_crop
+msgid "Crop"
+msgstr "Beschneiden"
+

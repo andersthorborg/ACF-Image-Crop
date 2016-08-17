@@ -4,7 +4,7 @@
 
 Adds an 'Image with user-crop' field type for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) WordPress plugin.
 
-*Please note: This repository is not maintained anymore. Please check out the official Wordpress repo: https://wordpress.org/plugins/acf-image-crop-add-on/*
+
 
 -----------------------
 
@@ -64,7 +64,13 @@ The size, that the image will ultimately be cropped into. This list includes the
 
 On the image field will be a *Crop*-button triggering the crop dialog. If the force crop option is enabled, the crop dialog will show up as soon as the user selects an image.
 
+**Retina/@2x mode**
+
+Makes the image field require double the dimensions selected. This makes it easier to integrate with plugins like WP Retina 2x.
+
 ###Further Details
 Whenever the user selects an image, the original image is stored, so whenever the user decides to re-crop the image the user will see the image first selected, and not the cropped one. Every crop made creates a seperate media item, which allows for multiple uses of the same image wihtout overwriting previous crops.
+
+The plugin settings can be found under Settings -> Media. Here you can enable global "Retina Mode" and choose to hide cropped images from the media dialog.
 
 The plugin has only been tested with Chrome for Mac, and still needs a lot of work. Please let me know of any issues or feature requests.
