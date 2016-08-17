@@ -51,24 +51,12 @@ function my_register_fields()
 
 ## Screenshots ##
 
-### 1. Use a registered image size as the field target size ###
-![1. Use a registered image size as the field target size](http://ps.w.org/advanced-custom-fields:-image-crop-add-on/assets/screenshot-1.png)
-
-### 2. Or use custom dimensions on the fly ###
-![2. Or use custom dimensions on the fly](http://ps.w.org/advanced-custom-fields:-image-crop-add-on/assets/screenshot-2.png)
-
-### 3. On the edit screen, select/upload an image as usual ###
-![3. On the edit screen, select/upload an image as usual](http://ps.w.org/advanced-custom-fields:-image-crop-add-on/assets/screenshot-3.png)
-
-### 4. A crop-button will appear beneath the image (If desired, use the "Force user crop"-option to initialize the crop as soon as the user selects the image) ###
-![4. A crop-button will appear beneath the image (If desired, use the "Force user crop"-option to initialize the crop as soon as the user selects the image)](http://ps.w.org/advanced-custom-fields:-image-crop-add-on/assets/screenshot-4.png)
-
-### 5. The image is cropped to the desired format, using the restrictions set under field options ###
-![5. The image is cropped to the desired format, using the restrictions set under field options](http://ps.w.org/advanced-custom-fields:-image-crop-add-on/assets/screenshot-5.png)
-
-### 6. The new format is shown using the specified preview size. The original image is kept with the field, so the image can be re-cropped at any time. ###
-![6. The new format is shown using the specified preview size. The original image is kept with the field, so the image can be re-cropped at any time.](http://ps.w.org/advanced-custom-fields:-image-crop-add-on/assets/screenshot-6.png)
-
+1. Use a registered image size as the field target size
+2. Or use custom dimensions on the fly
+3. On the edit screen, select/upload an image as usual
+4. A crop-button will appear beneath the image (If desired, use the "Force user crop"-option to initialize the crop as soon as the user selects the image)
+5. The image is cropped to the desired format, using the restrictions set under field options
+6. The new format is shown using the specified preview size. The original image is kept with the field, so the image can be re-cropped at any time.
 
 
 ## Changelog ##
