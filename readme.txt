@@ -2,8 +2,8 @@
 Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
-Tested up to: 4.3.1
-Stable tag: 1.4.7
+Tested up to: 4.6
+Stable tag: 1.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,10 @@ function my_register_fields()
 
 
 == Changelog ==
+
+= 1.4.8 =
+* Fix button styling
+* Prevent php warnings for unset field settings
 
 = 1.4.7 =
 * Added compatibility with ACF PRO 5.4.2.2 icons
