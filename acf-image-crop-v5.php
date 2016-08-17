@@ -316,6 +316,7 @@ class acf_field_image_crop extends acf_field_image {
         // vars
         $div_atts = array(
             'class'                 => 'acf-image-uploader acf-cf acf-image-crop',
+            'data-field-settings'   => json_encode($field),
             'data-crop_type'        => $field['crop_type'],
             'data-target_size'      => $field['target_size'],
             'data-width'            => $width,
@@ -737,9 +738,8 @@ class acf_field_image_crop extends acf_field_image {
 // added
 // a function that sets theoptions value to false
     function validateImageCropSettingsSection($input) {
-        $input['hide_cropped'] = ( $input['hide_cropped'] == true ? true : false );
-        $input['retina_mode'] = ( $input['retina_mode'] == true ? true : false );
-
+        $input['hide_cropped'] =    ( isset( $input['hide_cropped'] ) && $input['hide_cropped'] == true ? true : false );
+        $input['retina_mode'] =     ( isset( $input['retina_mode'] ) && $input['retina_mode'] == true ? true : false );
         return $input;
     }
 // added END

@@ -153,7 +153,7 @@ class acf_field_image_crop extends acf_field_image
 		do_action('acf/create_field', array(
 			'type'    =>  'text',
 			'name'    =>  'fields[' . $key . '][width]',
-			'value'   =>  $field['width'],
+			'value'   =>  isset($field['width']) ? $field['width'] : '',
 			'class'	  =>  'width dimension',
 			'placeholder' => 'Width'
 		));
@@ -163,7 +163,7 @@ class acf_field_image_crop extends acf_field_image
 		do_action('acf/create_field', array(
 			'type'    =>  'text',
 			'name'    =>  'fields[' . $key . '][height]',
-			'value'   =>  $field['height'],
+			'value'   =>  isset($field['height']) ? $field['height'] : '',
 			'class'	  =>  'height dimension',
 			'placeholder' => 'Height'
 		));
