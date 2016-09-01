@@ -50,6 +50,7 @@
 							$field.addClass('invalid');
 							$field.find('.init-crop-button').attr('disabled', 'disabled');
 							alert('Warning: The selected image is smaller than the required size:\n' + warnings.join('\n'));
+							removeImage($field);
 						}
 						else{
 							if($options.data('force-crop')){
@@ -76,6 +77,7 @@
 			$field.find('.cancel-crop-button').click(function(e){
 				e.preventDefault();
 				cancelCrop($field);
+				removeImage($field);
 			});
 			$field.on('click', '.acf-image-uploader .acf-button-edit', function( e ){
 				e.preventDefault();
@@ -222,6 +224,10 @@
                 cancelCrop($field);
 			}, 'json');
 		}
+	}
+
+	function removeImage($field){
+		$field.find('.acf-button-delete.ir').click();
 	}
 
 	function cancelCrop($field){

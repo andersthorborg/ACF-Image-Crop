@@ -264,6 +264,7 @@ function initialize_field( $el ) {
                         $field.find('.init-crop-button').attr('disabled', 'disabled');
 // changed for translation
                         alert(acf._e('image_crop', 'size_warning') + '\n\n' + warnings.join('\n\n'));
+                        removeImage($field);
 // changed END
                     }
                     else{
@@ -291,6 +292,7 @@ function initialize_field( $el ) {
         $field.find('.cancel-crop-button').click(function(e){
             e.preventDefault();
             cancelCrop($field);
+            removeImage($field);
         });
         // $field.find('[data-name=edit]').click(function(e){
         //     e.preventDefault();
@@ -432,6 +434,10 @@ function initialize_field( $el ) {
                 cancelCrop($field);
             }, 'json');
         }
+    }
+
+    function removeImage($field){
+      $field.find('*[data-name="remove"].acf-icon.-cancel').click();
     }
 
     function cancelCrop($field){
