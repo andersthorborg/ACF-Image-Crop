@@ -909,28 +909,13 @@ class acf_field_image_crop extends acf_field_image {
 
     /*
     *  update_value()
-    *
-    *  This filter is applied to the $value before it is saved in the db
-    *
-    *  @type    filter
-    *  @since   3.6
-    *  @date    23/01/13
-    *
-    *  @param   $value (mixed) the value found in the database
-    *  @param   $post_id (mixed) the $post_id from which the value was loaded
-    *  @param   $field (array) the field array holding all the field options
-    *  @return  $value
+    *  Implement this function to avoid parent function taking over and trying to validate json data
     */
-
-    /*
-
     function update_value( $value, $post_id, $field ) {
-
         return $value;
-
     }
 
-    */
+
 
 
     /*
