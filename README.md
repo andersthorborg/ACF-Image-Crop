@@ -40,14 +40,23 @@ This add-on can be treated as both a WP plugin and a theme include.
 1.	Copy the 'acf-image_crop' folder into your theme folder (can use sub folders). You can place the folder anywhere inside the 'wp-content' directory
 2.	Edit your functions.php file and add the code below (Make sure the path is correct to include the acf-image_crop.php file)
 
-`
-add_action('acf/register_fields', 'my_register_fields');
+```PHP
+/**
+ * Include ACF Image Crop Addon
+ */
 
-function my_register_fields()
-{
-	include_once('acf-image-crop/acf-image-crop.php');
-}
-`
+ add_filter('acf/image_crop_settings/url', 'my_image_crop_url', 10, 1);
+
+ function my_image_crop_url( $url ) {
+   
+   $url = get_template_directory_uri() . '/acf-image-crop/';
+   
+   return $url;
+   
+ }
+
+include( 'acf-image-crop/acf-image-crop.php' );
+```
 
 ## Screenshots ##
 
