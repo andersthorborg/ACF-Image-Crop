@@ -1134,30 +1134,13 @@ class acf_field_image_crop extends acf_field_image {
     *  @return  $valid
     */
 
-    /*
+
 
     function validate_value( $valid, $value, $field, $input ){
-
-        // Basic usage
-        if( $value < $field['custom_minimum_setting'] )
-        {
-            $valid = false;
-        }
-
-
-        // Advanced usage
-        if( $value < $field['custom_minimum_setting'] )
-        {
-            $valid = __('The value is too little!','acf-image_crop'),
-        }
-
-
-        // return
         return $valid;
-
     }
 
-    */
+
 
 
     /*
