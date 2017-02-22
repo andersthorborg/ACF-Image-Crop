@@ -594,13 +594,10 @@ class acf_field_image_crop extends acf_field_image
 
         function input_admin_enqueue_scripts()
         {
-                // Note: This function can be removed if not used
-
-
                 // register acf scripts
-                wp_register_script('acf-input-image_crop', $this->settings['dir'] . 'js/input-v4.js', array('acf-input', 'imgareaselect'), $this->settings['version']);
+                wp_register_script('acf-input-image_crop', plugins_url('js/input-v4.js', __FILE__), array('acf-input', 'imgareaselect'), $this->settings['version']);
 
-                wp_register_style('acf-input-image_crop', $this->settings['dir'] . 'css/input.css', array('acf-input'), $this->settings['version']);
+                wp_register_style('acf-input-image_crop', plugins_url('css/input.css', __FILE__), array('acf-input'), $this->settings['version']);
                 wp_register_script( 'jcrop', includes_url( 'js/jcrop/jquery.Jcrop.min.css' ));
 
 
