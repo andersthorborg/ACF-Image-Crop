@@ -889,7 +889,7 @@ class acf_field_image_crop extends acf_field_image
 	function filterMediaQuery($args){
         // get options
         $options = get_option( 'acf_image_crop_settings' );
-        $hide = $options['hide_cropped'];
+        $hide = isset($options['hide_cropped']) && $options['hide_cropped'];
 
         // If hide option is enabled, do not select items with the acf_is_cropped meta-field
         if($hide){
@@ -937,24 +937,24 @@ class acf_field_image_crop extends acf_field_image
     function displayHideFromMediaInput(){
         // Get plugin options
         $options = get_option( 'acf_image_crop_settings' );
-        $value = $options['hide_cropped'];
+        $hide = isset($options['hide_cropped']) && $options['hide_cropped'];
 
         // echo the field
         ?>
     <input name='acf_image_crop_settings[hide_cropped]'
-     type='checkbox' <?php echo $value ? 'checked' :  '' ?> value='true' />
+     type='checkbox' <?php echo $hide ? 'checked' :  '' ?> value='true' />
         <?php
     }
 
     function displayRetinaModeInput(){
         // Get plugin options
         $options = get_option( 'acf_image_crop_settings' );
-        $value = $options['retina_mode'];
+        $retina = isset($options['retina_mode']) && $options['retina_mode'];
 
         // echo the field
         ?>
     <input id="acf-image-crop-retina-mode" name='acf_image_crop_settings[retina_mode]'
-     type='checkbox' <?php echo $value ? 'checked' :  '' ?> value='true' />
+     type='checkbox' <?php echo $retina ? 'checked' :  '' ?> value='true' />
         <?php
     }
 
