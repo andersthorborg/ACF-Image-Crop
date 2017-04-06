@@ -3,7 +3,7 @@ Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
 Tested up to: 4.6
-Stable tag: 1.4.10
+Stable tag: 1.4.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ function my_register_fields()
 
 
 ## Changelog ##
+
+### 1.4.11 ###
+* Address issue with changed ACF Pro validation behavior causing php warnings when saving fields
 
 ### 1.4.10 ###
 * Add compatibility with ACF Pro 5.5.5
