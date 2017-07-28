@@ -4,7 +4,7 @@ class acf_field_image_crop extends acf_field_image {
 
 
     /*
-    *  __construct
+    *  initialize
     *
     *  This function will setup the field type data
     *
@@ -16,7 +16,7 @@ class acf_field_image_crop extends acf_field_image {
     *  @return  n/a
     */
 
-    function __construct() {
+    function initialize() {
 
         /*
         *  name (string) Single word, no spaces. Underscores allowed
@@ -80,14 +80,7 @@ class acf_field_image_crop extends acf_field_image {
             'size_warning'      => __( 'Warning: The selected image is smaller than the required size!','acf-image_crop' ),
             'crop_error'        => __( 'Sorry, an error occurred when trying to crop your image:')
         );
-
-
-        // do not delete!
-        acf_field::__construct();
-        //parent::__construct();
-
     }
-
 
     // AJAX handler for retieving full image dimensions from ID
     public function crop_get_image_size()
