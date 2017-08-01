@@ -460,7 +460,7 @@ class acf_field_image_crop extends acf_field_image {
 
 
     function input_admin_enqueue_scripts() {
-        $dir = plugin_dir_url( __FILE__ );
+        $dir = apply_filters( 'acf/image_crop_settings/url', plugin_dir_url( __FILE__ ) );
 
 
         // // register & include JS
@@ -839,7 +839,7 @@ class acf_field_image_crop extends acf_field_image {
 
     function field_group_admin_enqueue_scripts() {
 
-        $dir = plugin_dir_url( __FILE__ );
+        $dir = apply_filters( 'acf/image_crop_settings/url', plugin_dir_url( __FILE__ ) );
 
         wp_register_script('acf-input-image-crop-options', "{$dir}js/options.js", array('jquery'));
         wp_enqueue_script( 'acf-input-image-crop-options');
