@@ -953,6 +953,12 @@ class acf_field_image_crop extends acf_field_image {
         {
             if(is_numeric($data->cropped_image)){
                 $value = wp_get_attachment_url( $data->cropped_image );
+                if ( $field['target_size'] !== 'custom' ) {
+                    $img = wp_get_attachment_image_src( $data->cropped_image, $field['target_size'] );
+                    if ( is_array( $img ) ) {
+                        $value = $img[0];
+                    }
+                }
             }
             elseif(is_array($data->cropped_image)){
 
