@@ -763,7 +763,7 @@ class acf_field_image_crop extends acf_field_image
         $originalImageData = wp_get_attachment_metadata($id);
 
         // Get image editor from original image path to crop the image
-        $image = wp_get_image_editor( $mediaDir['basedir'] . '/' . $originalImageData['file'] );
+        $image = wp_get_image_editor( apply_filters( 'acf-image-crop/full_image_path', $mediaDir['basedir'] . '/' . $originalImageData['file'], $id, $originalImageData) );
 
         if(! is_wp_error( $image ) ){
 
