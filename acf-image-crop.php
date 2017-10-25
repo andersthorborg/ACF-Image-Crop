@@ -8,6 +8,8 @@ Author: Anders Thorborg
 Author URI: http://thorb.org
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: acf-image-crop
+Domain Path: /lang
 */
 
 
