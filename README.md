@@ -1,11 +1,11 @@
 # Advanced Custom Fields: Image Crop Add-on #
-Contributors: andersthorborg
-Tags: afc, advanced custom fields, image crop, image, crop
-Requires at least: 3.5
-Tested up to: 4.6
-Stable tag: 1.4.12
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* **Contributors:** andersthorborg
+* **Tags:** afc, advanced custom fields, image crop, image, crop
+* **Requires at least:** 3.5
+* **Tested up to:** 4.6
+* **Stable tag:** 1.4.12
+* **License:** GPLv2 or later
+* **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions
 
@@ -40,14 +40,14 @@ This add-on can be treated as both a WP plugin and a theme include.
 1.	Copy the 'acf-image_crop' folder into your theme folder (can use sub folders). You can place the folder anywhere inside the 'wp-content' directory
 2.	Edit your functions.php file and add the code below (Make sure the path is correct to include the acf-image_crop.php file)
 
-`
+```
 add_action('acf/register_fields', 'my_register_fields');
 
 function my_register_fields()
 {
 	include_once('acf-image-crop/acf-image-crop.php');
 }
-`
+```
 
 ## Screenshots ##
 
