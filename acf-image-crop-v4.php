@@ -230,14 +230,14 @@ class acf_field_image_crop extends acf_field_image
 	</td>
 </tr>
 <?php
-	$retina_instructions = __('Require and crop double the size set for this image. Enable this if you are using plugins like WP Retina 2x.','acf-image_crop');
+	$retina_instructions = __('Require and crop double the size set for this image. Enable this if you are using plugins like WP Retina 2x.','acf-image-crop');
 	if($this->getOption('retina_mode')){
-	    $retina_instructions .= '<br>' . __('NB. You currently have enabled retina mode globally for all fields through <a href="' . admin_url('options-media.php') . '#acf-image-crop-retina-mode' . '">settings</a>, which will override this setting.','acf-image_crop');
+	    $retina_instructions .= '<br>' . __('NB. You currently have enabled retina mode globally for all fields through <a href="' . admin_url('options-media.php') . '#acf-image-crop-retina-mode' . '">settings</a>, which will override this setting.','acf-image-crop');
 	}
 ?>
 <tr class="field_option field_option_<?php echo $this->name; ?>">
 	<td class="label">
-		<label><?php _e('Retina/@2x mode ','acf-image_crop'); ?></label>
+		<label><?php _e('Retina/@2x mode ','acf-image-crop'); ?></label>
 		<p><?php echo $retina_instructions ?></p>
 	</td>
 	<td>
@@ -907,7 +907,7 @@ class acf_field_image_crop extends acf_field_image
     function registerSettings(){
         add_settings_section(
             'acf_image_crop_settings',
-            __('ACF Image Crop Settings','acf-image_crop'),
+            __('ACF Image Crop Settings','acf-image-crop'),
             array($this, 'displayImageCropSettingsSection'),
             'media'
         );
@@ -919,7 +919,7 @@ class acf_field_image_crop extends acf_field_image
 
         add_settings_field(
             'acf_image_crop_hide_cropped',      // id
-            __('Hide cropped images from media dialog', 'acf-image_crop'),              // setting title
+            __('Hide cropped images from media dialog', 'acf-image-crop'),              // setting title
             array($this, 'displayHideFromMediaInput'),    // display callback
             'media',                 // settings page
             'acf_image_crop_settings'                  // settings section
@@ -927,7 +927,7 @@ class acf_field_image_crop extends acf_field_image
 
         add_settings_field(
             'acf_image_crop_retina_mode',      // id
-            __('Enable global retina mode (beta)', 'acf-image_crop'),              // setting title
+            __('Enable global retina mode (beta)', 'acf-image-crop'),              // setting title
             array($this, 'displayRetinaModeInput'),    // display callback
             'media',                 // settings page
             'acf_image_crop_settings'                  // settings section
