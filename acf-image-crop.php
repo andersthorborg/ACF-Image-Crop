@@ -8,12 +8,14 @@ Author: Anders Thorborg
 Author URI: http://thorb.org
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: acf-image-crop
+Domain Path: /lang
 */
 
 
 // 1. set text domain
 // Reference: https://codex.wordpress.org/Function_Reference/load_plugin_textdomain
-load_plugin_textdomain( 'acf-image_crop', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+load_plugin_textdomain( 'acf-image-crop', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
 
 
 
@@ -44,7 +46,7 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'acf_image_crop_
 
 function acf_image_crop_action_links( $links ) {
 // changed
-   $links[] = '<a href="'. get_admin_url(null, 'options-media.php') .'">'.__('Settings','acf-image_crop').'</a>';
+   $links[] = '<a href="'. get_admin_url(null, 'options-media.php') .'">'.__('Settings','acf-image-crop').'</a>';
 // changed END
    return $links;
 }
