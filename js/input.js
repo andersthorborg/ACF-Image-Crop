@@ -355,10 +355,19 @@ function initialize_field( $el ) {
 
           options.minWidth = 0;
           options.minHeight = 0;
-          options.x1 = 0;
-          options.y1 = 0;
-          options.x2 = Math.floor($options.data('aspect_width') * scale);
-          options.y2 = Math.floor($options.data('aspect_height') * scale);
+
+          var scaledHeight = Math.floor($options.data('aspect_height') * scale);
+          var scaledWidth = Math.floor($options.data('aspect_width') * scale);
+
+          var y1 = Math.floor((options.imageHeight - scaledHeight) / 2);
+          var x1 = Math.floor((options.imageWidth - scaledWidth) / 2);
+
+          options.x1 = x1;
+          options.y1 = y1;
+
+          options.x2 = scaledWidth + x1;
+          options.y2 = scaledHeight + y1;
+
         }
 
         // Center crop - disabled needs more testing
