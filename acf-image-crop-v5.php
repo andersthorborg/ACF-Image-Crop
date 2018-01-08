@@ -133,7 +133,7 @@ class acf_field_image_crop extends acf_field_image {
             'choices'       => array(
                 'hard'          => __('Hard crop', 'acf-image_crop'),
                 'min'           => __('Minimal dimensions', 'acf-image_crop'),
-                'aspect'          => __('Aspect ratio', 'acf-image_crop'),
+                'aspect'          => __('Aspect ratio', 'acf-image_crop')
             )
         ));
 
