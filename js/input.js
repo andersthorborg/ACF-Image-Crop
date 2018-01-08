@@ -345,6 +345,31 @@ function initialize_field( $el ) {
                 options.y2 = options.imageHeight;
             }
         }
+        else if($options.data('crop_type') == 'aspect'){
+          options.aspectRatio = $options.data('aspect_width') + ':' + $options.data('aspect_height');
+
+          var scaleHeight = options.imageHeight /  $options.data('aspect_height');
+          var scaleWidth = options.imageWidth / $options.data('aspect_width');
+
+          var scale = Math.min(scaleHeight, scaleWidth);
+
+          options.minWidth = 0;
+          options.minHeight = 0;
+
+          var scaledHeight = Math.floor($options.data('aspect_height') * scale);
+          var scaledWidth = Math.floor($options.data('aspect_width') * scale);
+
+          var y1 = Math.floor((options.imageHeight - scaledHeight) / 2);
+          var x1 = Math.floor((options.imageWidth - scaledWidth) / 2);
+
+          options.x1 = x1;
+          options.y1 = y1;
+
+          options.x2 = scaledWidth + x1;
+          options.y2 = scaledHeight + y1;
+
+        }
+
         // Center crop - disabled needs more testing
         // options.x1 = options.imageWidth/2 - (options.minWidth/2);
         // options.y1 = options.imageHeight/2 - (options.minHeight/2)

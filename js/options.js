@@ -7,6 +7,9 @@ jQuery(function($){
 			//console.log(this);
 			toggleSaveFormats(this);
 		});
+    $('.acf-field-object-image-crop .crop-type-select').each(function() {
+      toggleCropType(this);
+    });
 	});
 
 	$(document).on('change', '.acf-field-object-image-crop .target-size-select', function(e) {
@@ -69,6 +72,32 @@ jQuery(function($){
 	});
 	$('.acf-field-object-image-crop .save-in-media-library-select input').each(function() {
 		toggleSaveFormats(this);
+	});
+  $('.acf-field-object-image-crop .crop-type-select').each(function() {
+    toggleCropType(this);
+  });
+
+  function toggleCropType(cropTypeSelect){
+    if($(cropTypeSelect).val() == 'aspect'){
+      $(cropTypeSelect).parents('.acf-field-object-image-crop').first().find('.aspect-dimension').each(function(){
+        $(this).parents('tr.acf-field').first().removeClass('hidden');
+      });
+      $(cropTypeSelect).parents('.acf-field-object-image-crop').first().find('.target-size-select').each(function(){
+        $(this).parents('tr.acf-field').first().addClass('hidden');
+      });
+    }
+    else{
+      $(cropTypeSelect).parents('.acf-field-object-image-crop').first().find('.aspect-dimension').each(function(){
+        $(this).parents('tr.acf-field').first().addClass('hidden');
+      });
+      $(cropTypeSelect).parents('.acf-field-object-image-crop').first().find('.target-size-select').each(function(){
+        $(this).parents('tr.acf-field').first().removeClass('hidden');
+      });
+    }
+	}
+
+  $(document).on('change', '.acf-field-object-image-crop .crop-type-select', function(e) {
+    toggleCropType(this);
 	});
 
 });
