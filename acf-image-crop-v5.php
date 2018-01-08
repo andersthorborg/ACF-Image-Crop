@@ -132,7 +132,8 @@ class acf_field_image_crop extends acf_field_image {
             'class'         => 'crop-type-select',
             'choices'       => array(
                 'hard'          => __('Hard crop', 'acf-image_crop'),
-                'min'           => __('Minimal dimensions', 'acf-image_crop')
+                'min'           => __('Minimal dimensions', 'acf-image_crop'),
+                'aspect'          => __('Aspect ratio', 'acf-image_crop'),
             )
         ));
 
@@ -172,6 +173,26 @@ class acf_field_image_crop extends acf_field_image {
             'name'          => 'height',
             'class'         => 'custom-target-height custom-target-dimension',
             'append'        => 'px'
+        ));
+
+        // aspect width - conditional: crop_type == 'aspect'
+        acf_render_field_setting( $field, array(
+            'label'         => __('Aspect ratio width','acf-image_crop'),
+            'instructions'  => __('For example if you want the aspect ratio to be 16:9, enter 16 here.','acf-image_crop'),
+            'type'          => 'number',
+            'name'          => 'aspect_width',
+            'class'         => 'aspect-width aspect-dimension',
+            'append'        => ''
+        ));
+
+        // aspect height - conditional: crop_type == 'aspect'
+        acf_render_field_setting( $field, array(
+            'label'         => __('Aspect ratio height','acf-image_crop'),
+            'instructions'  => __('For example if you want the aspect ratio to be 16:9, enter 9 here.','acf-image_crop'),
+            'type'          => 'number',
+            'name'          => 'aspect_height',
+            'class'         => 'aspect-height aspect-dimension',
+            'append'        => ''
         ));
 
         // preview_size
@@ -288,6 +309,10 @@ class acf_field_image_crop extends acf_field_image {
             $width = $field['width'];
             $height = $field['height'];
         }
+        else if($field['crop_type'] == 'aspect'){
+            $width = 0;
+            $height = 0;
+        }
         else{
             global $_wp_additional_image_sizes;
             $s = $field['target_size'];
@@ -306,6 +331,14 @@ class acf_field_image_crop extends acf_field_image {
             $height = $height * 2;
         }
 
+        $aspect_width = 0;
+        $aspect_height = 0;
+        
+        if($field['crop_type'] == 'aspect'){
+            $aspect_width = $field['aspect_width'];
+            $aspect_height = $field['aspect_height'];
+        }
+
         // vars
         $div_atts = array(
             'class'                 => 'acf-image-uploader acf-cf acf-image-crop',
@@ -314,6 +347,8 @@ class acf_field_image_crop extends acf_field_image {
             'data-target_size'      => $field['target_size'],
             'data-width'            => $width,
             'data-height'           => $height,
+            'data-aspect_width'     => $aspect_width,
+            'data-aspect_height'    => $aspect_height,
             'data-force_crop'       => $field['force_crop'] == 'yes' ? 'true' : 'false',
             'data-save_to_media_library' => $field['save_in_media_library'],
             'data-save_format'      => $field['save_format'],
