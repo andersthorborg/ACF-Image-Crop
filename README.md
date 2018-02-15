@@ -2,7 +2,7 @@
 Contributors: andersthorborg
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
-Tested up to: 4.6
+Tested up to: 4.9.4
 Stable tag: 1.4.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -60,6 +60,10 @@ function my_register_fields()
 
 
 ## Changelog ##
+
+### 1.4.13 ###
+* Fix - applied max width on image previews
+* Tested compatibility up to 4.9.4
 
 ### 1.4.12 ###
 * Fix compatibility with ACF Pro 5.6.0

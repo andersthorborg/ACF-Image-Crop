@@ -35,6 +35,11 @@
 .acf-image-crop .crop-section .crop-stage, .acf-image-crop.cropping .image-section, .acf-image-crop.cropping .init-crop-button{
 	display:none;
 }
+
+.acf-image-crop img {
+	max-width: 100%;
+}
+
 .acf-image-crop.cropping .crop-stage {
 	display:block;
 	position:fixed;
