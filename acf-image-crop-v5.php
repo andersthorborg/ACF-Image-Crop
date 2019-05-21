@@ -570,6 +570,14 @@ class acf_field_image_crop extends acf_field_image {
                 wp_update_attachment_metadata( $attachmentId, $attachmentData );
                 add_post_meta($attachmentId, 'acf_is_cropped', 'true', true);
 
+                // Add support for 'Image Source' plugin metafields
+                $meta_source_text = get_post_meta($id, '_source_text', true);
+                $meta_source_url = get_post_meta($id, '_source_url', true);
+                $meta_source_cc = get_post_meta($id, '_source_cc', true);
+                if(!empty($meta_source_text)) add_post_meta($attachmentId, '_source_text', $meta_source_text);
+                if(!empty($meta_source_url)) add_post_meta($attachmentId, '_source_url', $meta_source_url);
+                if(!empty($meta_source_cc)) add_post_meta($attachmentId, '_source_cc', $meta_source_cc);
+
                 // Add the id to the imageData-array
                 $imageData['value'] = $attachmentId;
 
