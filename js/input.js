@@ -267,7 +267,7 @@ function initialize_field( $el ) {
 // changed END
                     }
                     else{
-                        if($options.data('force_crop')){
+                        if($options.data('force_crop') && parseInt($options.data('width')) !== parseInt(data['width']) && parseInt($options.data('height')) !== parseInt(data['height'])){
                             initCrop($field);
                         }
                     }
