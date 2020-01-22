@@ -341,11 +341,11 @@ class acf_field_image_crop extends acf_field_image {
     <div class="acf-hidden">
         <input <?php acf_esc_attr_e( $input_atts ); ?>/>
     </div>
-    <div class="view show-if-value acf-soh">
-        <ul class="acf-hl acf-soh-target">
-            <li><a class="acf-icon -pencil dark" data-name="edit" href="#"><i class="acf-sprite-edit"></i></a></li>
-            <li><a class="acf-icon -cancel dark" data-name="remove" href="#"><i class="acf-sprite-delete"></i></a></li>
-        </ul>
+    <div class="view show-if-value acf-soh image-wrap">
+        <div class="acf-actions -hover">
+            <a class="acf-icon -pencil dark" data-name="edit" href="#"><i class="acf-sprite-edit"></i></a>
+            <a class="acf-icon -cancel dark" data-name="remove" href="#"><i class="acf-sprite-delete"></i></a>
+        </div>
         <img data-name="image" src="<?php echo $url; ?>" alt=""/>
         <div class="crop-section">
             <div class="crop-stage">
