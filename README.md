@@ -1,13 +1,15 @@
 # Advanced Custom Fields: Image Crop Add-on #
-Contributors: andersthorborg
+Contributors: andersthorborg, nickkeenan
 Tags: afc, advanced custom fields, image crop, image, crop
 Requires at least: 3.5
-Tested up to: 4.6
-Stable tag: 1.4.12
+Tested up to: 6.9.1
+Stable tag: 1.4.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 An image field making it possible/required for the user to crop the selected image to the specified image size or dimensions
+
+This is a maintained fork of the abandoned [original plugin](https://github.com/andersthorborg/ACF-Image-Crop) by Anders Thorborg.
 
 ## Description ##
 
@@ -58,8 +60,18 @@ function my_register_fields()
 5. The image is cropped to the desired format, using the restrictions set under field options
 6. The new format is shown using the specified preview size. The original image is kept with the field, so the image can be re-cropped at any time.
 
+## Credits ##
+
+Originally developed by [Anders Thorborg](http://thorb.org). 
+This fork maintained by [Nick Keenan / Gameflow Interactive](https://gameflowinteractive.com) 
+with security patches applied. All credit for the original plugin goes to Anders.
 
 ## Changelog ##
+
+### 1.4.13 ###
+**Security fix applied:** CVE-2023-22676 / PSID ae467650d1f0  
+Adds `upload_files` capability check to `perform_crop()` to prevent 
+subscriber-level users from modifying media library images.
 
 ### 1.4.12 ###
 * Fix compatibility with ACF Pro 5.6.0
