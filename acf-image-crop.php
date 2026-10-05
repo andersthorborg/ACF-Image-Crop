@@ -13,7 +13,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 // 1. set text domain
 // Reference: https://codex.wordpress.org/Function_Reference/load_plugin_textdomain
-load_plugin_textdomain( 'acf-image_crop', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+// run before ACF includes field types (init priority 5)
+function acf_image_crop_load_textdomain() {
+    load_plugin_textdomain( 'acf-image_crop', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+}
+
+add_action('init', 'acf_image_crop_load_textdomain', 0);
 
 
 

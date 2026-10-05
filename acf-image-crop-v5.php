@@ -2,6 +2,7 @@
 
 class acf_field_image_crop extends acf_field_image {
 
+    public $options = false; // will hold global plugin settings
 
     /*
     *  initialize
@@ -323,7 +324,7 @@ class acf_field_image_crop extends acf_field_image {
         $input_atts = array(
             'type'                  => 'hidden',
             'name'                  => $field['name'],
-            'value'                 => htmlspecialchars($field['value']),
+            'value'                 => htmlspecialchars(strval($field['value'])),
             'data-name'             => 'id',
             'data-original-image'   => $imageData->original_image,
             'data-cropped-image'    => json_encode($imageData->cropped_image),
@@ -704,7 +705,7 @@ class acf_field_image_crop extends acf_field_image {
     function displayHideFromMediaInput(){
         // Get plugin options
         $options = get_option( 'acf_image_crop_settings' );
-        $value = $options['hide_cropped'];
+        $value = isset($options['hide_cropped']) && $options['hide_cropped'];
 
         // echo the field
         ?>
@@ -716,7 +717,7 @@ class acf_field_image_crop extends acf_field_image {
     function displayRetinaModeInput(){
         // Get plugin options
         $options = get_option( 'acf_image_crop_settings' );
-        $value = $options['retina_mode'];
+        $value = isset($options['retina_mode']) && $options['retina_mode'];
 
         // echo the field
         ?>

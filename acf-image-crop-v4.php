@@ -4,7 +4,8 @@ class acf_field_image_crop extends acf_field_image
 {
 	// vars
 	var $settings, // will hold info such as dir / path
-		$defaults; // will hold default field options
+		$defaults, // will hold default field options
+		$options = false; // will hold global plugin settings
 
 
 	/*
